@@ -146,98 +146,134 @@ main {
 }
 
 
-/* =========================
+/* =================================
+   TAMANHO DOS TEXTOS
+================================= */
+
+#conteudo h2 {
+    font-size: calc(1.8rem * var(--tamanho-texto) / 100);
+}
+
+#conteudo h3 {
+    font-size: calc(1.3rem * var(--tamanho-texto) / 100);
+}
+
+#conteudo p {
+    font-size: calc(1.1rem * var(--tamanho-texto) / 100);
+}
+
+
+/* =================================
    LUPA
-========================= */
+================================= */
 
 #lupa {
     display: none;
 
     position: fixed;
 
-    width: 260px;
-    height: 150px;
-
-    padding: 20px;
+    width: 300px;
+    height: 200px;
 
     overflow: hidden;
 
     background: white;
 
-    color: #111;
+    color: black;
 
     border: 5px solid #075985;
 
-    border-radius: 15px;
+    border-radius: 50%;
 
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.4);
+        0 8px 30px rgba(0, 0, 0, 0.5);
 
-    z-index: 9999;
-
-    font-size: 1.8rem;
-
-    line-height: 1.3;
+    z-index: 99999;
 
     pointer-events: none;
+
+    transform-origin: center center;
+
+    padding: 25px;
 }
 
-#lupa div {
-    max-height: 110px;
+
+/*
+ * Conteúdo ampliado
+ */
+
+#lupaConteudo {
+    width: 100%;
+    height: 100%;
 
     overflow: hidden;
+
+    transform: scale(1.8);
+
+    transform-origin: center center;
+
+    font-size: 1.2rem;
 }
 
 
-/* =========================
-   ALTO CONTRASTE
-========================= */
+/*
+ * Elementos copiados para a lupa
+ */
+
+#lupaConteudo * {
+    max-width: none !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =================================
+   TEXTO SENDO LIDO
+================================= */
+
+.sendo-lido {
+
+    background: #fff176 !important;
+
+    color: #000 !important;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 0 4px #f59e0b;
+
+}
+
+
+/* =================================
+   CONTRASTE
+================================= */
 
 body.alto-contraste {
-    background: #000;
 
-    color: #fff;
-}
-
-body.alto-contraste header {
     background: #000;
 
     color: #fff;
 
-    border-bottom: 3px solid #fff;
-}
-
-body.alto-contraste .ferramentas {
-    background: #000;
-
-    border-color: #fff;
 }
 
 body.alto-contraste .card {
+
     background: #000;
 
     color: #fff;
 
-    border: 3px solid #fff;
+    border: 2px solid #fff;
 
-    box-shadow: none;
 }
 
 body.alto-contraste .card h2,
 body.alto-contraste .card h3 {
+
     color: #ffff00;
-}
 
-body.alto-contraste button {
-    background: #ffff00;
-
-    color: #000;
-
-    border: 2px solid white;
-}
-
-body.alto-contraste button:focus {
-    outline: 4px solid #00ffff;
 }
 
 
