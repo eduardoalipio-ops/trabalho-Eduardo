@@ -1,32 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <link rel="stylesheet" href="style.css"/>
-  
-  <title>Acessibilidade</title> 
-  <h1>Ajudando Alunos com Problemas de Visão</h1>
-  <nav>
-    <a href="#">inicio</a>
-  </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visão Acessível</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-  <body>
-    <main>
-    <h2> acessibilidade</h2>
-      <section>
-        <article>
-          <div>
-            <div>
-              <img src="https://faculdadeplus.edu.br/blog/wp-content/uploads/2019/08/logo-blog1.png" alt="acessibilidade" class="img-acessibilidade">
-              <p>site para auxiliar pessoa com problemas de visão.</p>
-            </div>
-            <div>
-               <img src="https://faculdadeplus.edu.br/blog/wp-content/uploads/2019/08/logo-blog1.png" alt="acessibilidade" class="img-acessibilidade">
-              <p>Uma lupa para alxiliar pessoas com problemas de visão</p>
-            </div>
-          </div>
-        </article>
-      </section>
+
+<body>
+
+    <header>
+        <h1>Visão Acessível</h1>
+
+        <p>
+            Ferramentas para facilitar a leitura e a navegação
+            de pessoas com baixa visão.
+        </p>
+    </header>
+
+    <nav class="ferramentas" aria-label="Ferramentas de acessibilidade">
+
+        <button id="aumentarTexto">
+            🔠 Aumentar texto
+        </button>
+
+        <button id="diminuirTexto">
+            🔡 Diminuir texto
+        </button>
+
+        <button id="contraste">
+            🌓 Alto contraste
+        </button>
+
+        <button id="ativarLupa">
+            🔍 Ativar lupa
+        </button>
+
+        <button id="lerTexto">
+            🔊 Ler texto
+        </button>
+
+        <button id="pararLeitura">
+            ⏹️ Parar leitura
+        </button>
+
+    </nav>
+
+    <main id="conteudo">
+
+        <section class="card">
+
+            <h2>Bem-vindo ao Visão Acessível</h2>
+
+            <p>
+                Este site foi desenvolvido para ajudar pessoas com
+                dificuldades de visão a acessar informações na internet
+                com mais facilidade.
+            </p>
+
+            <p>
+                Você pode aumentar o tamanho das letras, ativar o
+                alto contraste, utilizar uma lupa ou ouvir o conteúdo
+                da página.
+            </p>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Como utilizar?</h2>
+
+            <h3>🔠 Aumentar o texto</h3>
+
+            <p>
+                Clique no botão "Aumentar texto" para deixar as letras
+                maiores e facilitar a leitura.
+            </p>
+
+            <h3>🔍 Lupa</h3>
+
+            <p>
+                Ative a lupa e mova o mouse pela página. A região
+                próxima ao cursor será ampliada.
+            </p>
+
+            <h3>🔊 Leitor de texto</h3>
+
+            <p>
+                Clique em "Ler texto" para que o navegador leia
+                o conteúdo desta página em voz alta.
+            </p>
+
+        </section>
+
+        <section class="card">
+
+            <h2>Por que acessibilidade é importante?</h2>
+
+            <p>
+                A acessibilidade digital permite que mais pessoas
+                possam utilizar sites, sistemas e aplicativos
+                independentemente de suas limitações.
+            </p>
+
+            <p>
+                Pequenas ferramentas, como aumento de fonte,
+                contraste e leitura por voz, podem tornar a
+                experiência na internet muito mais inclusiva.
+            </p>
+
+        </section>
+
     </main>
-    <footer>Projeto Feito Por Eduardo</footer>
-  </body>
+
+    <div id="lupa" aria-hidden="true"></div>
+
+    <footer>
+        <p>
+            Visão Acessível © 2026
+        </p>
+    </footer>
+
+    <script>
+
+        // -----------------------------
+        // TAMANHO DO TEXTO
+        // -----------------------------
+
+        let tamanhoTexto = 100;
+
+        const conteudo = document.getElementById("conteudo");
+
+        document.getElementById("aumentarTexto").addEventListener("click", () => {
+
+            if (tamanhoTexto < 180) {
+                tamanhoTexto += 10;
+                conteudo.style.fontSize = tamanhoTexto + "%";
+            }
+
+        });
+
+        document.getElementById("diminuirTexto").addEventListener("click", () => {
+
+            if (tamanhoTexto > 80) {
+                tamanhoTexto -= 10;
+                conteudo.style.fontSize = tamanhoTexto + "%";
+            }
+
+        });
+
+
+        // -----------------------------
+        // ALTO CONTRASTE
+        // -----------------------------
+
+        document.getElementById("contraste").addEventListener("click", () => {
+
+            document.body.classList.toggle("alto-contraste");
+
+        });
+
+
+        // -----------------------------
+        // LUPA
+        // -----------------------------
+
+        const lupa = document.getElementById("lupa");
+        const botaoLupa = document.getElementById("ativarLupa");
+
+        let lupaAtiva = false;
+
+        botaoLupa.addEventListener("click", () => {
+
+            lupaAtiva = !lupaAtiva;
+
+            if (lupaAtiva) {
+
+                lupa.style.display = "block";
+                botaoLupa.textContent = "🔍 Desativar lupa";
+
+            } else {
+
+                lupa.style.display = "none";
+                botaoLupa.textContent = "🔍 Ativar lupa";
+
+            }
+
+        });
+
+        document.addEventListener("mousemove", (evento) => {
+
+            if (!lupaAtiva) return;
+
+            lupa.style.left = (evento.clientX + 20) + "px";
+            lupa.style.top = (evento.clientY + 20) + "px";
+
+            const elemento = document.elementFromPoint(
+                evento.clientX,
+                evento.clientY
+            );
+
+            if (elemento) {
+
+                lupa.innerHTML = `
+                    <div>
+                        ${elemento.innerText || elemento.textContent || ""}
+                    </div>
+                `;
+
+            }
+
+        });
+
+
+        // -----------------------------
+        // LEITOR DE TEXTO
+        // -----------------------------
+
+        document.getElementById("lerTexto").addEventListener("click", () => {
+
+            speechSynthesis.cancel();
+
+            const texto = conteudo.innerText;
+
+            const fala = new SpeechSynthesisUtterance(texto);
+
+            fala.lang = "pt-BR";
+            fala.rate = 0.9;
+            fala.pitch = 1;
+
+            speechSynthesis.speak(fala);
+
+        });
+
+
+        // -----------------------------
+        // PARAR LEITURA
+        // -----------------------------
+
+        document.getElementById("pararLeitura").addEventListener("click", () => {
+
+            speechSynthesis.cancel();
+
+        });
+
+    </script>
+
+</body>
 </html>
