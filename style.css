@@ -2,6 +2,10 @@
    CONFIGURAÇÕES GERAIS
 ========================= */
 
+:root {
+    --tamanho-texto: 100%;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -23,6 +27,7 @@ body {
         background 0.3s,
         color 0.3s;
 }
+
 
 
 /* =========================
