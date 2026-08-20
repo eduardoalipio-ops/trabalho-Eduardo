@@ -1,1 +1,296 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f4f7fb;
+    color: #17202a;
+
+    line-height: 1.7;
+
+    transition:
+        background 0.3s,
+        color 0.3s;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    background: #075985;
+    color: white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+
+/* =========================
+   FERRAMENTAS
+========================= */
+
+.ferramentas {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-bottom: 2px solid #ddd;
+}
+
+button {
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 14px 18px;
+
+    background: #0369a1;
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+button:hover {
+    background: #075985;
+
+    transform: scale(1.03);
+}
+
+button:focus {
+    outline: 4px solid #facc15;
+
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+main {
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+
+    margin-bottom: 25px;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: #075985;
+
+    font-size: 1.8rem;
+}
+
+.card h3 {
+    color: #0369a1;
+
+    margin-top: 25px;
+}
+
+.card p {
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   LUPA
+========================= */
+
+#lupa {
+    display: none;
+
+    position: fixed;
+
+    width: 260px;
+    height: 150px;
+
+    padding: 20px;
+
+    overflow: hidden;
+
+    background: white;
+
+    color: #111;
+
+    border: 5px solid #075985;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.4);
+
+    z-index: 9999;
+
+    font-size: 1.8rem;
+
+    line-height: 1.3;
+
+    pointer-events: none;
+}
+
+#lupa div {
+    max-height: 110px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   ALTO CONTRASTE
+========================= */
+
+body.alto-contraste {
+    background: #000;
+
+    color: #fff;
+}
+
+body.alto-contraste header {
+    background: #000;
+
+    color: #fff;
+
+    border-bottom: 3px solid #fff;
+}
+
+body.alto-contraste .ferramentas {
+    background: #000;
+
+    border-color: #fff;
+}
+
+body.alto-contraste .card {
+    background: #000;
+
+    color: #fff;
+
+    border: 3px solid #fff;
+
+    box-shadow: none;
+}
+
+body.alto-contraste .card h2,
+body.alto-contraste .card h3 {
+    color: #ffff00;
+}
+
+body.alto-contraste button {
+    background: #ffff00;
+
+    color: #000;
+
+    border: 2px solid white;
+}
+
+body.alto-contraste button:focus {
+    outline: 4px solid #00ffff;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    background: #075985;
+
+    color: white;
+
+    margin-top: 50px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .ferramentas {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+
+        font-size: 1.05rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    #lupa {
+        width: 200px;
+        height: 120px;
+
+        font-size: 1.4rem;
+    }
+}
 
