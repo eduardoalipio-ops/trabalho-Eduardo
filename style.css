@@ -293,4 +293,63 @@ footer {
         font-size: 1.4rem;
     }
 }
+/* =========================
+   TEXTO SENDO LIDO
+========================= */
+
+.sendo-lido {
+    background: #fff176 !important;
+
+    color: #000 !important;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 0 4px #f59e0b;
+
+    transition:
+        background 0.3s,
+        box-shadow 0.3s;
+}
+
+
+/* =========================
+   LUPA DURANTE A LEITURA
+========================= */
+
+#lupa {
+    width: 320px;
+
+    min-height: 160px;
+
+    max-height: 230px;
+
+    overflow-y: auto;
+
+    font-size: 1.7rem;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 6px solid #075985;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+#lupa .icone-lupa {
+    font-size: 1.5rem;
+}
 
