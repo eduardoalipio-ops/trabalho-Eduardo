@@ -124,129 +124,302 @@
     </footer>
 
     <script>
+    // =============================
+    // TAMANHO DO TEXTO
+    // =============================
 
-        // -----------------------------
-        // TAMANHO DO TEXTO
-        // -----------------------------
+    let tamanhoTexto = 100;
 
-        let tamanhoTexto = 100;
+    const conteudo = document.getElementById("conteudo");
 
-        const conteudo = document.getElementById("conteudo");
+    document.getElementById("aumentarTexto").addEventListener("click", () => {
 
-        document.getElementById("aumentarTexto").addEventListener("click", () => {
+        if (tamanhoTexto < 180) {
+            tamanhoTexto += 10;
+            conteudo.style.fontSize = tamanhoTexto + "%";
+        }
 
-            if (tamanhoTexto < 180) {
-                tamanhoTexto += 10;
-                conteudo.style.fontSize = tamanhoTexto + "%";
+    });
+
+    document.getElementById("diminuirTexto").addEventListener("click", () => {
+
+        if (tamanhoTexto > 80) {
+            tamanhoTexto -= 10;
+            conteudo.style.fontSize = tamanhoTexto + "%";
+        }
+
+    });
+
+
+    // =============================
+    // ALTO CONTRASTE
+    // =============================
+
+    document.getElementById("contraste").addEventListener("click", () => {
+
+        document.body.classList.toggle("alto-contraste");
+
+    });
+
+
+    // =============================
+    // LUPA
+    // =============================
+
+    const lupa = document.getElementById("lupa");
+    const botaoLupa = document.getElementById("ativarLupa");
+
+    let lupaAtiva = false;
+
+    botaoLupa.addEventListener("click", () => {
+
+        lupaAtiva = !lupaAtiva;
+
+        if (lupaAtiva) {
+
+            lupa.style.display = "block";
+            botaoLupa.textContent = "🔍 Desativar lupa";
+
+        } else {
+
+            lupa.style.display = "none";
+            botaoLupa.textContent = "🔍 Ativar lupa";
+
+        }
+
+    });
+
+
+    // =============================
+    // LUPA SEGUINDO O MOUSE
+    // =============================
+
+    document.addEventListener("mousemove", (evento) => {
+
+        if (!lupaAtiva) return;
+
+        // Não mexe na posição da lupa quando
+        // ela estiver acompanhando a leitura.
+
+        if (estaLendo) return;
+
+        lupa.style.left = (evento.clientX + 20) + "px";
+        lupa.style.top = (evento.clientY + 20) + "px";
+
+        const elemento = document.elementFromPoint(
+            evento.clientX,
+            evento.clientY
+        );
+
+        if (elemento && conteudo.contains(elemento)) {
+
+            const texto =
+                elemento.innerText ||
+                elemento.textContent ||
+                "";
+
+            lupa.innerHTML = `
+                <div>${texto}</div>
+            `;
+
+        }
+
+    });
+
+
+    // =============================
+    // LEITOR DE TEXTO
+    // =============================
+
+    let estaLendo = false;
+
+    let partes = [];
+
+    let indiceAtual = 0;
+
+
+    function prepararTexto() {
+
+        const elementos = conteudo.querySelectorAll(
+            "h2, h3, p"
+        );
+
+        partes = [];
+
+        elementos.forEach(elemento => {
+
+            const texto = elemento.innerText.trim();
+
+            if (texto.length > 0) {
+
+                partes.push({
+                    elemento: elemento,
+                    texto: texto
+                });
+
             }
 
         });
 
-        document.getElementById("diminuirTexto").addEventListener("click", () => {
+    }
 
-            if (tamanhoTexto > 80) {
-                tamanhoTexto -= 10;
-                conteudo.style.fontSize = tamanhoTexto + "%";
-            }
 
+    function falarProximaParte() {
+
+        if (!estaLendo) return;
+
+        if (indiceAtual >= partes.length) {
+
+            finalizarLeitura();
+
+            return;
+        }
+
+        const parte = partes[indiceAtual];
+
+        // Remove destaque anterior
+
+        partes.forEach(item => {
+            item.elemento.classList.remove(
+                "sendo-lido"
+            );
         });
 
 
-        // -----------------------------
-        // ALTO CONTRASTE
-        // -----------------------------
+        // Destaca o texto atual
 
-        document.getElementById("contraste").addEventListener("click", () => {
+        parte.elemento.classList.add(
+            "sendo-lido"
+        );
 
-            document.body.classList.toggle("alto-contraste");
 
+        // Rola a tela até o texto
+
+        parte.elemento.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
 
 
-        // -----------------------------
-        // LUPA
-        // -----------------------------
+        // =============================
+        // ATUALIZA A LUPA
+        // =============================
 
-        const lupa = document.getElementById("lupa");
-        const botaoLupa = document.getElementById("ativarLupa");
+        if (lupaAtiva) {
 
-        let lupaAtiva = false;
+            lupa.style.display = "block";
 
-        botaoLupa.addEventListener("click", () => {
+            lupa.innerHTML = `
+                <div>
+                    <span class="icone-lupa">🔍</span>
+                    <br>
+                    ${parte.texto}
+                </div>
+            `;
 
-            lupaAtiva = !lupaAtiva;
+        }
 
-            if (lupaAtiva) {
 
-                lupa.style.display = "block";
-                botaoLupa.textContent = "🔍 Desativar lupa";
+        // =============================
+        // FALA
+        // =============================
 
-            } else {
-
-                lupa.style.display = "none";
-                botaoLupa.textContent = "🔍 Ativar lupa";
-
-            }
-
-        });
-
-        document.addEventListener("mousemove", (evento) => {
-
-            if (!lupaAtiva) return;
-
-            lupa.style.left = (evento.clientX + 20) + "px";
-            lupa.style.top = (evento.clientY + 20) + "px";
-
-            const elemento = document.elementFromPoint(
-                evento.clientX,
-                evento.clientY
+        const fala =
+            new SpeechSynthesisUtterance(
+                parte.texto
             );
 
-            if (elemento) {
+        fala.lang = "pt-BR";
 
-                lupa.innerHTML = `
-                    <div>
-                        ${elemento.innerText || elemento.textContent || ""}
-                    </div>
-                `;
+        fala.rate = 0.9;
 
-            }
+        fala.pitch = 1;
 
-        });
+        fala.volume = 1;
 
 
-        // -----------------------------
-        // LEITOR DE TEXTO
-        // -----------------------------
+        fala.onend = () => {
 
-        document.getElementById("lerTexto").addEventListener("click", () => {
+            indiceAtual++;
+
+            falarProximaParte();
+
+        };
+
+
+        fala.onerror = () => {
+
+            indiceAtual++;
+
+            falarProximaParte();
+
+        };
+
+
+        speechSynthesis.speak(fala);
+
+    }
+
+
+    // =============================
+    // BOTÃO LER
+    // =============================
+
+    document.getElementById("lerTexto").addEventListener(
+        "click",
+        () => {
 
             speechSynthesis.cancel();
 
-            const texto = conteudo.innerText;
+            prepararTexto();
 
-            const fala = new SpeechSynthesisUtterance(texto);
+            indiceAtual = 0;
 
-            fala.lang = "pt-BR";
-            fala.rate = 0.9;
-            fala.pitch = 1;
+            estaLendo = true;
 
-            speechSynthesis.speak(fala);
+            falarProximaParte();
+
+        }
+    );
+
+
+    // =============================
+    // PARAR LEITURA
+    // =============================
+
+    document.getElementById("pararLeitura").addEventListener(
+        "click",
+        () => {
+
+            finalizarLeitura();
+
+        }
+    );
+
+
+    function finalizarLeitura() {
+
+        estaLendo = false;
+
+        speechSynthesis.cancel();
+
+        partes.forEach(item => {
+
+            item.elemento.classList.remove(
+                "sendo-lido"
+            );
 
         });
 
+        if (!lupaAtiva) {
 
-        // -----------------------------
-        // PARAR LEITURA
-        // -----------------------------
+            lupa.style.display = "none";
 
-        document.getElementById("pararLeitura").addEventListener("click", () => {
+        }
 
-            speechSynthesis.cancel();
+    }
 
-        });
-
-    </script>
+</script>
 
 </body>
 </html>
