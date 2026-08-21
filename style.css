@@ -5,14 +5,14 @@
 
 
 /* =========================================
-   CONFIGURAÇÕES
+   VARIÁVEIS
 ========================================= */
 
 :root {
 
     --tamanho-texto: 100%;
 
-    --azul-principal: #075985;
+    --azul: #075985;
 
     --azul-botao: #0369a1;
 
@@ -34,7 +34,7 @@
 
 
 /* =========================================
-   RESET
+   CONFIGURAÇÕES GERAIS
 ========================================= */
 
 * {
@@ -68,10 +68,6 @@ body {
 
     line-height: 1.7;
 
-    transition:
-        background 0.3s ease,
-        color 0.3s ease;
-
 }
 
 
@@ -81,7 +77,7 @@ body {
 
 header {
 
-    background: var(--azul-principal);
+    background: var(--azul);
 
     color: #ffffff;
 
@@ -108,8 +104,6 @@ header p {
     margin: 0;
 
     font-size: 1.2rem;
-
-    line-height: 1.6;
 
 }
 
@@ -244,9 +238,7 @@ main {
 
     margin-top: 0;
 
-    margin-bottom: 20px;
-
-    color: var(--azul-principal);
+    color: var(--azul);
 
     font-size:
         calc(
@@ -264,8 +256,6 @@ main {
 
     margin-top: 25px;
 
-    margin-bottom: 10px;
-
     color: var(--azul-botao);
 
     font-size:
@@ -275,16 +265,10 @@ main {
             100
         );
 
-    line-height: 1.4;
-
 }
 
 
 .card p {
-
-    margin-top: 0;
-
-    margin-bottom: 18px;
 
     font-size:
         calc(
@@ -317,7 +301,7 @@ main {
 
 
 /* =========================================
-   LUPA
+   LUPA QUADRADA
 ========================================= */
 
 #lupa {
@@ -326,13 +310,13 @@ main {
 
     position: fixed;
 
+    width: 260px;
+
+    height: 260px;
+
     left: 0;
 
     top: 0;
-
-    width: 260px;
-
-    height: 180px;
 
     padding: 20px;
 
@@ -340,14 +324,14 @@ main {
 
     color: #000000;
 
-    border: 5px solid var(--azul-principal);
+    border: 5px solid var(--azul);
 
-    border-radius: 50%;
+    border-radius: 12px;
 
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.45);
+        0 10px 30px rgba(0, 0, 0, 0.5);
 
-    z-index: 99999;
+    z-index: 999999;
 
     pointer-events: none;
 
@@ -355,6 +339,10 @@ main {
 
 }
 
+
+/* =========================================
+   CONTEÚDO DA LUPA
+========================================= */
 
 #lupaConteudo {
 
@@ -368,7 +356,7 @@ main {
 
     justify-content: center;
 
-    text-align: center;
+    padding: 10px;
 
     overflow: hidden;
 
@@ -376,7 +364,9 @@ main {
 
     color: #000000;
 
-    font-size: 1.6rem;
+    text-align: center;
+
+    font-size: 1.8rem;
 
     font-weight: bold;
 
@@ -400,8 +390,6 @@ body.alto-contraste {
 }
 
 
-/* Cabeçalho */
-
 body.alto-contraste header {
 
     background: #000000;
@@ -413,8 +401,6 @@ body.alto-contraste header {
 }
 
 
-/* Ferramentas */
-
 body.alto-contraste .ferramentas {
 
     background: #000000;
@@ -423,8 +409,6 @@ body.alto-contraste .ferramentas {
 
 }
 
-
-/* Botões */
 
 body.alto-contraste button {
 
@@ -446,8 +430,6 @@ body.alto-contraste button:hover {
 }
 
 
-/* Cards */
-
 body.alto-contraste .card {
 
     background: #000000;
@@ -461,8 +443,6 @@ body.alto-contraste .card {
 }
 
 
-/* Títulos */
-
 body.alto-contraste .card h2,
 body.alto-contraste .card h3 {
 
@@ -471,21 +451,9 @@ body.alto-contraste .card h3 {
 }
 
 
-/* Texto sendo lido */
-
-body.alto-contraste .sendo-lido {
-
-    background: #ffff00 !important;
-
-    color: #000000 !important;
-
-    box-shadow:
-        0 0 0 4px #ffffff;
-
-}
-
-
-/* Lupa */
+/* =========================================
+   LUPA NO ALTO CONTRASTE
+========================================= */
 
 body.alto-contraste #lupa {
 
@@ -517,7 +485,7 @@ footer {
 
     padding: 30px 20px;
 
-    background: var(--azul-principal);
+    background: var(--azul);
 
     color: #ffffff;
 
@@ -575,8 +543,6 @@ footer p {
 
         width: 100%;
 
-        font-size: 1.05rem;
-
     }
 
 
@@ -598,18 +564,16 @@ footer p {
 
     #lupa {
 
-        width: 200px;
+        width: 220px;
 
-        height: 140px;
-
-        padding: 15px;
+        height: 220px;
 
     }
 
 
     #lupaConteudo {
 
-        font-size: 1.3rem;
+        font-size: 1.4rem;
 
     }
 
@@ -638,16 +602,16 @@ footer p {
 
     #lupa {
 
-        width: 180px;
+        width: 190px;
 
-        height: 125px;
+        height: 190px;
 
     }
 
 
     #lupaConteudo {
 
-        font-size: 1.1rem;
+        font-size: 1.2rem;
 
     }
 
