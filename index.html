@@ -1,262 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Visão Acessível - ferramentas para facilitar a leitura e navegação de pessoas com baixa visão."
+    >
 
     <title>Visão Acessível</title>
 
-    <style>
-        /* ================================
-           CONFIGURAÇÕES GERAIS
-        ================================= */
+    <link rel="stylesheet" href="style.css">
 
-        :root {
-            --tamanho-texto: 100%;
-            --cor-fundo: #f4f6f8;
-            --cor-texto: #222;
-            --cor-card: #ffffff;
-            --cor-botao: #005fcc;
-            --cor-botao-hover: #004494;
-            --cor-borda: #cccccc;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: var(--tamanho-texto);
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--cor-fundo);
-            color: var(--cor-texto);
-            line-height: 1.7;
-        }
-
-        /* ================================
-           CABEÇALHO
-        ================================= */
-
-        header {
-            background: #005fcc;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0 0 10px;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 1.15rem;
-        }
-
-        /* ================================
-           MENU DE FERRAMENTAS
-        ================================= */
-
-        .ferramentas {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            background: white;
-            border-bottom: 2px solid var(--cor-borda);
-        }
-
-        button {
-            border: none;
-            border-radius: 8px;
-            padding: 13px 18px;
-            background: var(--cor-botao);
-            color: white;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            min-height: 48px;
-        }
-
-        button:hover {
-            background: var(--cor-botao-hover);
-        }
-
-        button:focus {
-            outline: 4px solid #ffcc00;
-            outline-offset: 2px;
-        }
-
-        /* ================================
-           CONTEÚDO
-        ================================= */
-
-        main {
-            width: min(1100px, 92%);
-            margin: 30px auto;
-        }
-
-        .card {
-            background: var(--cor-card);
-            margin-bottom: 25px;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--cor-borda);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .card h2 {
-            color: #005fcc;
-            margin-top: 0;
-        }
-
-        .card h3 {
-            margin-top: 25px;
-        }
-
-        /* ================================
-           TEXTO SENDO LIDO
-        ================================= */
-
-        .sendo-lido {
-            background: #fff3a3;
-            color: #000;
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        /* ================================
-           ALTO CONTRASTE
-        ================================= */
-
-        body.alto-contraste {
-            background: #000;
-            color: #fff;
-        }
-
-        body.alto-contraste header {
-            background: #000;
-            color: #fff;
-            border-bottom: 3px solid #fff;
-        }
-
-        body.alto-contraste .ferramentas {
-            background: #000;
-            border-color: #fff;
-        }
-
-        body.alto-contraste .card {
-            background: #000;
-            color: #fff;
-            border: 2px solid #fff;
-            box-shadow: none;
-        }
-
-        body.alto-contraste .card h2 {
-            color: #ffff00;
-        }
-
-        body.alto-contraste button {
-            background: #fff;
-            color: #000;
-            border: 2px solid #fff;
-        }
-
-        body.alto-contraste button:hover {
-            background: #ffff00;
-        }
-
-        /* ================================
-           LUPA
-        ================================= */
-
-        #lupa {
-            position: fixed;
-            display: none;
-            width: 220px;
-            height: 220px;
-            border: 5px solid #005fcc;
-            border-radius: 50%;
-            background: white;
-            overflow: hidden;
-            z-index: 9999;
-            pointer-events: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        #lupaConteudo {
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            overflow: hidden;
-            color: #222;
-            background: white;
-            font-size: 1.8rem;
-            line-height: 1.5;
-        }
-
-        #lupaConteudo h1,
-        #lupaConteudo h2,
-        #lupaConteudo h3,
-        #lupaConteudo p {
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-
-        /* ================================
-           RODAPÉ
-        ================================= */
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: #005fcc;
-            color: white;
-            margin-top: 40px;
-        }
-
-        /* ================================
-           CELULAR
-        ================================= */
-
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            .ferramentas {
-                flex-direction: column;
-            }
-
-            button {
-                width: 100%;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            #lupa {
-                width: 180px;
-                height: 180px;
-            }
-        }
-    </style>
 </head>
+
 
 <body>
 
-    <!-- ================================
+    <!-- =====================================
          CABEÇALHO
-    ================================= -->
+    ====================================== -->
 
     <header>
 
@@ -270,9 +40,9 @@
     </header>
 
 
-    <!-- ================================
+    <!-- =====================================
          FERRAMENTAS
-    ================================= -->
+    ====================================== -->
 
     <nav
         class="ferramentas"
@@ -286,12 +56,14 @@
             🔠 Aumentar texto
         </button>
 
+
         <button
             type="button"
             id="diminuirTexto"
         >
             🔡 Diminuir texto
         </button>
+
 
         <button
             type="button"
@@ -301,6 +73,7 @@
             🌓 Alto contraste
         </button>
 
+
         <button
             type="button"
             id="ativarLupa"
@@ -309,12 +82,14 @@
             🔍 Ativar lupa
         </button>
 
+
         <button
             type="button"
             id="lerTexto"
         >
             🔊 Ler texto
         </button>
+
 
         <button
             type="button"
@@ -326,11 +101,14 @@
     </nav>
 
 
-    <!-- ================================
-         CONTEÚDO
-    ================================= -->
+    <!-- =====================================
+         CONTEÚDO PRINCIPAL
+    ====================================== -->
 
     <main id="conteudo">
+
+
+        <!-- CARD 1 -->
 
         <section class="card">
 
@@ -338,11 +116,13 @@
                 Bem-vindo ao Visão Acessível
             </h2>
 
+
             <p>
-                Este site foi desenvolvido para ajudar pessoas
-                com dificuldades de visão a acessar informações
-                na internet com mais facilidade.
+                Este site foi desenvolvido para ajudar
+                pessoas com dificuldades de visão a acessar
+                informações na internet com mais facilidade.
             </p>
+
 
             <p>
                 Você pode aumentar o tamanho das letras,
@@ -353,33 +133,43 @@
         </section>
 
 
+
+        <!-- CARD 2 -->
+
         <section class="card">
 
             <h2>
                 Como utilizar?
             </h2>
 
+
             <h3>
                 🔠 Aumentar o texto
             </h3>
+
 
             <p>
                 Clique no botão "Aumentar texto" para deixar
                 as letras maiores e facilitar a leitura.
             </p>
 
+
             <h3>
                 🔍 Lupa
             </h3>
 
+
             <p>
                 Ative a lupa e mova o mouse pela página.
-                A região próxima ao cursor será ampliada.
+                A lupa acompanhará o cursor e mostrará
+                o conteúdo que estiver próximo dele.
             </p>
+
 
             <h3>
                 🔊 Leitor de texto
             </h3>
+
 
             <p>
                 Clique em "Ler texto" para que o navegador
@@ -389,32 +179,40 @@
         </section>
 
 
+
+        <!-- CARD 3 -->
+
         <section class="card">
 
             <h2>
                 Por que acessibilidade é importante?
             </h2>
 
+
             <p>
-                A acessibilidade digital permite que mais pessoas
-                possam utilizar sites, sistemas e aplicativos
-                independentemente de suas limitações.
+                A acessibilidade digital permite que mais
+                pessoas possam utilizar sites, sistemas
+                e aplicativos independentemente de suas
+                limitações.
             </p>
+
 
             <p>
                 Pequenas ferramentas, como aumento de fonte,
-                contraste e leitura por voz, podem tornar a
-                experiência na internet muito mais inclusiva.
+                contraste e leitura por voz, podem tornar
+                a experiência na internet muito mais inclusiva.
             </p>
 
         </section>
 
+
     </main>
 
 
-    <!-- ================================
+
+    <!-- =====================================
          LUPA
-    ================================= -->
+    ====================================== -->
 
     <div
         id="lupa"
@@ -428,9 +226,10 @@
     </div>
 
 
-    <!-- ================================
+
+    <!-- =====================================
          RODAPÉ
-    ================================= -->
+    ====================================== -->
 
     <footer>
 
@@ -441,32 +240,48 @@
     </footer>
 
 
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
     <script>
 
-        // ==========================================
-        // TAMANHO DO TEXTO
-        // ==========================================
+
+        // =====================================
+        // ELEMENTOS PRINCIPAIS
+        // =====================================
+
+        const conteudo =
+            document.getElementById("conteudo");
+
+
+
+        // =====================================
+        // AUMENTAR / DIMINUIR TEXTO
+        // =====================================
 
         let tamanhoTexto = 100;
 
-        const raiz =
-            document.documentElement;
 
         const botaoAumentar =
             document.getElementById("aumentarTexto");
+
 
         const botaoDiminuir =
             document.getElementById("diminuirTexto");
 
 
+
         function atualizarTamanhoTexto() {
 
-            raiz.style.setProperty(
+            document.documentElement.style.setProperty(
                 "--tamanho-texto",
                 tamanhoTexto + "%"
             );
 
         }
+
 
 
         botaoAumentar.addEventListener(
@@ -485,6 +300,7 @@
         );
 
 
+
         botaoDiminuir.addEventListener(
             "click",
             function () {
@@ -501,12 +317,14 @@
         );
 
 
-        // ==========================================
+
+        // =====================================
         // ALTO CONTRASTE
-        // ==========================================
+        // =====================================
 
         const botaoContraste =
             document.getElementById("contraste");
+
 
 
         botaoContraste.addEventListener(
@@ -518,10 +336,12 @@
                         "alto-contraste"
                     );
 
+
                 botaoContraste.setAttribute(
                     "aria-pressed",
                     ativado
                 );
+
 
                 if (ativado) {
 
@@ -539,21 +359,30 @@
         );
 
 
-        // ==========================================
+
+        // =====================================
         // LUPA
-        // ==========================================
+        // =====================================
 
         const lupa =
             document.getElementById("lupa");
 
+
         const lupaConteudo =
             document.getElementById("lupaConteudo");
+
 
         const botaoLupa =
             document.getElementById("ativarLupa");
 
+
         let lupaAtiva = false;
 
+
+
+        // =====================================
+        // ATIVAR / DESATIVAR LUPA
+        // =====================================
 
         botaoLupa.addEventListener(
             "click",
@@ -561,21 +390,26 @@
 
                 lupaAtiva = !lupaAtiva;
 
+
                 botaoLupa.setAttribute(
                     "aria-pressed",
                     lupaAtiva
                 );
 
+
                 if (lupaAtiva) {
 
                     lupa.style.display = "block";
 
+
                     botaoLupa.textContent =
                         "🔍 Desativar lupa";
+
 
                 } else {
 
                     lupa.style.display = "none";
+
 
                     botaoLupa.textContent =
                         "🔍 Ativar lupa";
@@ -586,6 +420,11 @@
         );
 
 
+
+        // =====================================
+        // LUPA ACOMPANHANDO O MOUSE
+        // =====================================
+
         document.addEventListener(
             "mousemove",
             function (evento) {
@@ -595,47 +434,92 @@
                 }
 
 
-                // Posição da lupa
 
-                let esquerda =
-                    evento.clientX + 20;
+                // ---------------------------------
+                // TAMANHO DA LUPA
+                // ---------------------------------
 
-                let topo =
-                    evento.clientY + 20;
+                const larguraLupa = 260;
+
+                const alturaLupa = 180;
 
 
-                // Evita que a lupa saia da tela
+
+                // ---------------------------------
+                // DISTÂNCIA DO CURSOR
+                // ---------------------------------
+
+                const distancia = 25;
+
+
+
+                // ---------------------------------
+                // POSIÇÃO INICIAL
+                // ---------------------------------
+
+                let x =
+                    evento.clientX +
+                    distancia;
+
+
+                let y =
+                    evento.clientY +
+                    distancia;
+
+
+
+                // ---------------------------------
+                // LIMITE DIREITO
+                // ---------------------------------
 
                 if (
-                    esquerda + 220 >
+                    x + larguraLupa >
                     window.innerWidth
                 ) {
 
-                    esquerda =
-                        evento.clientX - 240;
+                    x =
+                        evento.clientX -
+                        larguraLupa -
+                        distancia;
 
                 }
 
 
+
+                // ---------------------------------
+                // LIMITE INFERIOR
+                // ---------------------------------
+
                 if (
-                    topo + 220 >
+                    y + alturaLupa >
                     window.innerHeight
                 ) {
 
-                    topo =
-                        evento.clientY - 240;
+                    y =
+                        evento.clientY -
+                        alturaLupa -
+                        distancia;
 
                 }
 
 
+
+                // ---------------------------------
+                // APLICA POSIÇÃO
+                // ---------------------------------
+
                 lupa.style.left =
-                    esquerda + "px";
+                    x + "px";
+
 
                 lupa.style.top =
-                    topo + "px";
+                    y + "px";
 
 
-                // Descobre o elemento sob o mouse
+
+                // ---------------------------------
+                // ELEMENTO SOB O CURSOR
+                // ---------------------------------
 
                 const elemento =
                     document.elementFromPoint(
@@ -644,20 +528,30 @@
                     );
 
 
+
+                // ---------------------------------
+                // VERIFICA SE ESTÁ NO CONTEÚDO
+                // ---------------------------------
+
                 if (
                     elemento &&
-                    document
-                        .getElementById("conteudo")
-                        .contains(elemento)
+                    conteudo.contains(elemento)
                 ) {
 
-                    const texto =
+
+                    let texto =
                         elemento.innerText ||
                         elemento.textContent ||
                         "";
 
 
-                    if (texto.trim() !== "") {
+
+                    texto =
+                        texto.trim();
+
+
+
+                    if (texto.length > 0) {
 
                         lupaConteudo.textContent =
                             texto;
@@ -670,20 +564,24 @@
         );
 
 
-        // ==========================================
+
+        // =====================================
         // LEITOR DE TEXTO
-        // ==========================================
+        // =====================================
 
         let estaLendo = false;
 
+
         let partes = [];
+
 
         let indiceAtual = 0;
 
 
-        const conteudo =
-            document.getElementById("conteudo");
 
+        // =====================================
+        // PREPARAR TEXTO
+        // =====================================
 
         function prepararTexto() {
 
@@ -692,7 +590,9 @@
                     "h2, h3, p"
                 );
 
+
             partes = [];
+
 
 
             elementos.forEach(
@@ -702,11 +602,15 @@
                         elemento.innerText.trim();
 
 
+
                     if (texto.length > 0) {
 
                         partes.push({
+
                             elemento: elemento,
+
                             texto: texto
+
                         });
 
                     }
@@ -717,11 +621,17 @@
         }
 
 
+
+        // =====================================
+        // FALAR PRÓXIMA PARTE
+        // =====================================
+
         function falarProximaParte() {
 
             if (!estaLendo) {
                 return;
             }
+
 
 
             if (
@@ -736,8 +646,10 @@
             }
 
 
+
             const parte =
                 partes[indiceAtual];
+
 
 
             // Remove destaque anterior
@@ -753,6 +665,7 @@
             );
 
 
+
             // Destaca o texto atual
 
             parte.elemento.classList.add(
@@ -760,13 +673,20 @@
             );
 
 
-            // Leva o usuário até o texto
+
+            // Rola a página
 
             parte.elemento.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "center"
+
             });
 
+
+
+            // Cria a fala
 
             const fala =
                 new SpeechSynthesisUtterance(
@@ -774,14 +694,25 @@
                 );
 
 
-            fala.lang = "pt-BR";
 
-            fala.rate = 0.9;
+            fala.lang =
+                "pt-BR";
 
-            fala.pitch = 1;
 
-            fala.volume = 1;
+            fala.rate =
+                0.9;
 
+
+            fala.pitch =
+                1;
+
+
+            fala.volume =
+                1;
+
+
+
+            // Quando terminar
 
             fala.onend =
                 function () {
@@ -793,6 +724,9 @@
                 };
 
 
+
+            // Se ocorrer erro
+
             fala.onerror =
                 function () {
 
@@ -803,6 +737,9 @@
                 };
 
 
+
+            // Fala
+
             window.speechSynthesis.speak(
                 fala
             );
@@ -810,24 +747,29 @@
         }
 
 
-        // ==========================================
-        // BOTÃO LER
-        // ==========================================
+
+        // =====================================
+        // BOTÃO LER TEXTO
+        // =====================================
 
         const botaoLer =
             document.getElementById("lerTexto");
+
 
 
         botaoLer.addEventListener(
             "click",
             function () {
 
+
+                // Verifica suporte
+
                 if (
                     !("speechSynthesis" in window)
                 ) {
 
                     alert(
-                        "Seu navegador não possui suporte à leitura de texto."
+                        "Seu navegador não possui suporte para leitura de texto."
                     );
 
                     return;
@@ -835,13 +777,27 @@
                 }
 
 
+
+                // Para qualquer leitura anterior
+
                 window.speechSynthesis.cancel();
+
+
+
+                // Prepara novamente
 
                 prepararTexto();
 
+
+
                 indiceAtual = 0;
 
+
                 estaLendo = true;
+
+
+
+                // Começa
 
                 falarProximaParte();
 
@@ -849,12 +805,16 @@
         );
 
 
-        // ==========================================
-        // BOTÃO PARAR
-        // ==========================================
+
+        // =====================================
+        // BOTÃO PARAR LEITURA
+        // =====================================
 
         const botaoParar =
-            document.getElementById("pararLeitura");
+            document.getElementById(
+                "pararLeitura"
+            );
+
 
 
         botaoParar.addEventListener(
@@ -867,11 +827,18 @@
         );
 
 
+
+        // =====================================
+        // FINALIZAR LEITURA
+        // =====================================
+
         function finalizarLeitura() {
 
             estaLendo = false;
 
+
             window.speechSynthesis.cancel();
+
 
 
             partes.forEach(
@@ -886,7 +853,10 @@
 
         }
 
+
     </script>
 
 </body>
+
 </html>
+-
