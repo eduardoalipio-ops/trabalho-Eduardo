@@ -1,44 +1,60 @@
 /* =========================================
    VISÃO ACESSÍVEL
-   CSS PRINCIPAL
+   STYLE.CSS
 ========================================= */
 
 
 /* =========================================
-   CONFIGURAÇÕES GERAIS
+   CONFIGURAÇÕES
 ========================================= */
 
 :root {
+
     --tamanho-texto: 100%;
 
-    --cor-principal: #075985;
-    --cor-principal-hover: #0369a1;
+    --azul-principal: #075985;
 
-    --cor-fundo: #f4f7fb;
-    --cor-fundo-card: #ffffff;
+    --azul-botao: #0369a1;
 
-    --cor-texto: #17202a;
+    --azul-hover: #064e70;
 
-    --cor-foco: #facc15;
+    --fundo: #f4f7fb;
 
-    --cor-destaque-leitura: #fff176;
-    --cor-borda-leitura: #f59e0b;
+    --branco: #ffffff;
+
+    --texto: #17202a;
+
+    --amarelo-foco: #facc15;
+
+    --amarelo-leitura: #fff176;
+
+    --borda-leitura: #f59e0b;
+
 }
 
 
+/* =========================================
+   RESET
+========================================= */
+
 * {
+
     box-sizing: border-box;
+
 }
 
 
 html {
+
     scroll-behavior: smooth;
 
     font-size: var(--tamanho-texto);
+
 }
 
 
 body {
+
     margin: 0;
 
     font-family:
@@ -46,15 +62,16 @@ body {
         Helvetica,
         sans-serif;
 
-    background: var(--cor-fundo);
+    background: var(--fundo);
 
-    color: var(--cor-texto);
+    color: var(--texto);
 
     line-height: 1.7;
 
     transition:
         background 0.3s ease,
         color 0.3s ease;
+
 }
 
 
@@ -63,39 +80,46 @@ body {
 ========================================= */
 
 header {
-    background: var(--cor-principal);
+
+    background: var(--azul-principal);
 
     color: #ffffff;
 
     text-align: center;
 
     padding: 40px 20px;
+
 }
 
 
 header h1 {
+
     margin: 0 0 10px;
 
     font-size: 2.5rem;
 
     line-height: 1.2;
+
 }
 
 
 header p {
+
     margin: 0;
 
     font-size: 1.2rem;
 
     line-height: 1.6;
+
 }
 
 
 /* =========================================
-   BARRA DE FERRAMENTAS
+   FERRAMENTAS
 ========================================= */
 
 .ferramentas {
+
     display: flex;
 
     flex-wrap: wrap;
@@ -111,6 +135,7 @@ header p {
     background: #ffffff;
 
     border-bottom: 2px solid #dddddd;
+
 }
 
 
@@ -119,6 +144,7 @@ header p {
 ========================================= */
 
 button {
+
     border: none;
 
     border-radius: 8px;
@@ -127,7 +153,7 @@ button {
 
     min-height: 48px;
 
-    background: var(--cor-principal-hover);
+    background: var(--azul-botao);
 
     color: #ffffff;
 
@@ -142,33 +168,41 @@ button {
     transition:
         background 0.2s ease,
         transform 0.2s ease;
+
 }
 
 
 button:hover {
-    background: var(--cor-principal);
+
+    background: var(--azul-hover);
 
     transform: translateY(-2px);
+
 }
 
 
 button:active {
+
     transform: translateY(0);
+
 }
 
 
 button:focus-visible {
-    outline: 4px solid var(--cor-foco);
+
+    outline: 4px solid var(--amarelo-foco);
 
     outline-offset: 3px;
+
 }
 
 
 /* =========================================
-   CONTEÚDO PRINCIPAL
+   CONTEÚDO
 ========================================= */
 
 main {
+
     width: 100%;
 
     max-width: 1000px;
@@ -176,6 +210,7 @@ main {
     margin: 40px auto;
 
     padding: 0 20px;
+
 }
 
 
@@ -184,7 +219,8 @@ main {
 ========================================= */
 
 .card {
-    background: var(--cor-fundo-card);
+
+    background: var(--branco);
 
     margin-bottom: 25px;
 
@@ -196,6 +232,7 @@ main {
 
     box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.08);
+
 }
 
 
@@ -204,86 +241,58 @@ main {
 ========================================= */
 
 .card h2 {
+
     margin-top: 0;
 
     margin-bottom: 20px;
 
-    color: var(--cor-principal);
+    color: var(--azul-principal);
 
-    font-size: 1.8rem;
-
-    line-height: 1.3;
-}
-
-
-.card h3 {
-    margin-top: 25px;
-
-    margin-bottom: 10px;
-
-    color: var(--cor-principal-hover);
-
-    font-size: 1.3rem;
-
-    line-height: 1.4;
-}
-
-
-.card p {
-    margin-top: 0;
-
-    margin-bottom: 18px;
-
-    font-size: 1.1rem;
-}
-
-
-/* =========================================
-   TAMANHO DO TEXTO
-========================================= */
-
-/*
-   O JavaScript altera:
-
-   --tamanho-texto
-
-   Exemplo:
-
-   100%
-   110%
-   120%
-   130%
-
-   O conteúdo acompanha essa alteração.
-*/
-
-#conteudo h2 {
     font-size:
         calc(
             1.8rem *
             var(--tamanho-texto) /
             100
         );
+
+    line-height: 1.3;
+
 }
 
 
-#conteudo h3 {
+.card h3 {
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    color: var(--azul-botao);
+
     font-size:
         calc(
             1.3rem *
             var(--tamanho-texto) /
             100
         );
+
+    line-height: 1.4;
+
 }
 
 
-#conteudo p {
+.card p {
+
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
     font-size:
         calc(
             1.1rem *
             var(--tamanho-texto) /
             100
         );
+
 }
 
 
@@ -292,7 +301,8 @@ main {
 ========================================= */
 
 .sendo-lido {
-    background: var(--cor-destaque-leitura) !important;
+
+    background: var(--amarelo-leitura) !important;
 
     color: #000000 !important;
 
@@ -301,11 +311,8 @@ main {
     border-radius: 8px;
 
     box-shadow:
-        0 0 0 4px var(--cor-borda-leitura);
+        0 0 0 4px var(--borda-leitura);
 
-    transition:
-        background 0.3s ease,
-        box-shadow 0.3s ease;
 }
 
 
@@ -314,53 +321,46 @@ main {
 ========================================= */
 
 #lupa {
+
     display: none;
 
     position: fixed;
 
-    width: 300px;
+    left: 0;
 
-    height: 200px;
+    top: 0;
+
+    width: 260px;
+
+    height: 180px;
 
     padding: 20px;
-
-    overflow: hidden;
 
     background: #ffffff;
 
     color: #000000;
 
-    border: 5px solid var(--cor-principal);
+    border: 5px solid var(--azul-principal);
 
     border-radius: 50%;
 
     box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.5);
+        0 8px 30px rgba(0, 0, 0, 0.45);
 
     z-index: 99999;
 
     pointer-events: none;
 
-    font-size: 1.5rem;
+    overflow: hidden;
 
-    font-weight: bold;
-
-    line-height: 1.5;
-
-    word-wrap: break-word;
 }
 
 
-/*
-   Área onde aparece o texto ampliado.
-*/
-
 #lupaConteudo {
+
     width: 100%;
 
     height: 100%;
-
-    overflow: hidden;
 
     display: flex;
 
@@ -370,15 +370,20 @@ main {
 
     text-align: center;
 
-    font-size: 1.7rem;
-
-    line-height: 1.5;
-
-    color: #000000;
+    overflow: hidden;
 
     background: #ffffff;
 
+    color: #000000;
+
+    font-size: 1.6rem;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+
     word-break: break-word;
+
 }
 
 
@@ -387,61 +392,64 @@ main {
 ========================================= */
 
 body.alto-contraste {
+
     background: #000000;
 
     color: #ffffff;
+
 }
 
 
-/*
-   Cabeçalho
-*/
+/* Cabeçalho */
 
 body.alto-contraste header {
+
     background: #000000;
 
     color: #ffffff;
 
     border-bottom: 3px solid #ffffff;
+
 }
 
 
-/*
-   Barra de ferramentas
-*/
+/* Ferramentas */
 
 body.alto-contraste .ferramentas {
+
     background: #000000;
 
     border-bottom: 2px solid #ffffff;
+
 }
 
 
-/*
-   Botões
-*/
+/* Botões */
 
 body.alto-contraste button {
+
     background: #ffffff;
 
     color: #000000;
 
     border: 2px solid #ffffff;
+
 }
 
 
 body.alto-contraste button:hover {
+
     background: #ffff00;
 
     color: #000000;
+
 }
 
 
-/*
-   Cards
-*/
+/* Cards */
 
 body.alto-contraste .card {
+
     background: #000000;
 
     color: #ffffff;
@@ -449,50 +457,53 @@ body.alto-contraste .card {
     border: 2px solid #ffffff;
 
     box-shadow: none;
+
 }
 
 
-/*
-   Títulos
-*/
+/* Títulos */
 
 body.alto-contraste .card h2,
 body.alto-contraste .card h3 {
+
     color: #ffff00;
+
 }
 
 
-/*
-   Texto que está sendo lido
-*/
+/* Texto sendo lido */
 
 body.alto-contraste .sendo-lido {
+
     background: #ffff00 !important;
 
     color: #000000 !important;
 
     box-shadow:
         0 0 0 4px #ffffff;
+
 }
 
 
-/*
-   Lupa no alto contraste
-*/
+/* Lupa */
 
 body.alto-contraste #lupa {
+
     background: #ffffff;
 
     color: #000000;
 
     border-color: #ffff00;
+
 }
 
 
 body.alto-contraste #lupaConteudo {
+
     background: #ffffff;
 
     color: #000000;
+
 }
 
 
@@ -501,139 +512,145 @@ body.alto-contraste #lupaConteudo {
 ========================================= */
 
 footer {
+
     margin-top: 50px;
 
     padding: 30px 20px;
 
-    background: var(--cor-principal);
+    background: var(--azul-principal);
 
     color: #ffffff;
 
     text-align: center;
+
 }
 
 
 footer p {
+
     margin: 0;
 
-    font-size: 1rem;
 }
 
 
 /* =========================================
-   RESPONSIVIDADE
+   CELULAR
 ========================================= */
 
 @media (max-width: 700px) {
 
     header {
+
         padding: 30px 15px;
+
     }
 
 
     header h1 {
+
         font-size: 2rem;
+
     }
 
 
     header p {
+
         font-size: 1rem;
+
     }
 
 
     .ferramentas {
+
         flex-direction: column;
 
         align-items: stretch;
 
         padding: 15px;
+
     }
 
 
     button {
+
         width: 100%;
 
         font-size: 1.05rem;
+
     }
 
 
     main {
+
         margin: 25px auto;
 
         padding: 0 15px;
+
     }
 
 
     .card {
+
         padding: 20px;
 
-        margin-bottom: 20px;
-    }
-
-
-    .card h2 {
-        font-size: 1.6rem;
-    }
-
-
-    .card h3 {
-        font-size: 1.2rem;
-    }
-
-
-    .card p {
-        font-size: 1rem;
     }
 
 
     #lupa {
-        width: 190px;
+
+        width: 200px;
 
         height: 140px;
 
         padding: 15px;
 
-        border-width: 4px;
     }
 
 
     #lupaConteudo {
+
         font-size: 1.3rem;
+
     }
 
-
-    footer {
-        margin-top: 30px;
-    }
 }
 
 
 /* =========================================
-   TELAS MUITO PEQUENAS
+   CELULARES PEQUENOS
 ========================================= */
 
 @media (max-width: 400px) {
 
     header h1 {
+
         font-size: 1.7rem;
+
     }
 
 
     .card {
+
         padding: 16px;
+
     }
 
 
     #lupa {
-        width: 170px;
 
-        height: 120px;
+        width: 180px;
+
+        height: 125px;
+
     }
 
 
     #lupaConteudo {
+
         font-size: 1.1rem;
+
     }
+
 }
 
 
@@ -644,15 +661,18 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
 
     html {
+
         scroll-behavior: auto;
+
     }
 
 
-    *,
-    *::before,
-    *::after {
+    * {
+
         transition: none !important;
 
         animation: none !important;
+
     }
+
 }
