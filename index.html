@@ -105,7 +105,6 @@
 
     <main id="conteudo">
 
-
         <section class="card">
 
             <h2>
@@ -151,7 +150,7 @@
             <p>
                 Ative a lupa e mova o mouse pela página.
                 A lupa acompanhará o cursor e ampliará
-                o texto que estiver próximo ao ponteiro.
+                o texto que estiver próximo do ponteiro.
             </p>
 
 
@@ -194,7 +193,7 @@
 
 
     <!-- =========================================
-         LUPA
+         LUPA CURSOR
     ========================================== -->
 
     <div
@@ -203,7 +202,7 @@
     >
 
         <div id="lupaConteudo">
-            Mova o mouse sobre um texto.
+            Passe o cursor sobre um texto.
         </div>
 
     </div>
@@ -334,7 +333,7 @@
 
 
         // =========================================
-        // LUPA
+        // LUPA COMO CURSOR
         // =========================================
 
         const lupa =
@@ -352,25 +351,13 @@
         let lupaAtiva = false;
 
 
-        // Tamanho da lupa
-
-        const TAMANHO_LUPA = 260;
-
-
-        // Distância entre o cursor e a lupa
-
-        const DISTANCIA_LUPA = 20;
-
-
-        // Posição atual do mouse
-
         let mouseX = 0;
 
         let mouseY = 0;
 
 
         // =========================================
-        // ATIVAR / DESATIVAR
+        // ATIVAR / DESATIVAR LUPA
         // =========================================
 
         botaoLupa.addEventListener(
@@ -390,15 +377,12 @@
 
                     lupa.style.display = "block";
 
-
                     botaoLupa.textContent =
                         "🔍 Desativar lupa";
-
 
                 } else {
 
                     lupa.style.display = "none";
-
 
                     botaoLupa.textContent =
                         "🔍 Ativar lupa";
@@ -410,7 +394,7 @@
 
 
         // =========================================
-        // MOVIMENTO DO MOUSE
+        // MOVIMENTO DO CURSOR
         // =========================================
 
         document.addEventListener(
@@ -425,7 +409,9 @@
 
 
                 if (!lupaAtiva) {
+
                     return;
+
                 }
 
 
@@ -443,74 +429,12 @@
 
         function atualizarPosicaoLupa() {
 
-            let x =
-                mouseX +
-                DISTANCIA_LUPA;
-
-
-            let y =
-                mouseY +
-                DISTANCIA_LUPA;
-
-
-            // Se chegar à direita,
-            // coloca a lupa à esquerda.
-
-            if (
-                x + TAMANHO_LUPA >
-                window.innerWidth
-            ) {
-
-                x =
-                    mouseX -
-                    TAMANHO_LUPA -
-                    DISTANCIA_LUPA;
-
-            }
-
-
-            // Se chegar embaixo,
-            // coloca a lupa acima.
-
-            if (
-                y + TAMANHO_LUPA >
-                window.innerHeight
-            ) {
-
-                y =
-                    mouseY -
-                    TAMANHO_LUPA -
-                    DISTANCIA_LUPA;
-
-            }
-
-
-            // Evita sair pela esquerda.
-
-            if (x < 5) {
-
-                x = 5;
-
-            }
-
-
-            // Evita sair pelo topo.
-
-            if (y < 5) {
-
-                y = 5;
-
-            }
-
-
-            // Move a lupa.
-
             lupa.style.left =
-                x + "px";
+                mouseX + "px";
 
 
             lupa.style.top =
-                y + "px";
+                mouseY + "px";
 
         }
 
@@ -529,11 +453,13 @@
 
 
             if (!elemento) {
+
                 return;
+
             }
 
 
-            // Não pega a própria lupa.
+            // Não captura a própria lupa.
 
             if (
                 elemento === lupa ||
@@ -545,15 +471,14 @@
             }
 
 
-            // Verifica se está dentro
-            // do conteúdo principal.
+            // Verifica se está no conteúdo.
 
             if (
                 !conteudo.contains(elemento)
             ) {
 
                 lupaConteudo.textContent =
-                    "Mova o mouse sobre o conteúdo.";
+                    "Passe o cursor sobre um texto.";
 
                 return;
 
@@ -562,9 +487,6 @@
 
             let texto = "";
 
-
-            // Primeiro tenta pegar
-            // o texto do elemento.
 
             if (elemento.innerText) {
 
@@ -623,6 +545,8 @@
 
                     atualizarPosicaoLupa();
 
+                    atualizarTextoLupa();
+
                 }
 
             }
@@ -639,10 +563,6 @@
 
         let indiceAtual = 0;
 
-
-        // =========================================
-        // PREPARAR TEXTO
-        // =========================================
 
         function prepararTexto() {
 
@@ -680,10 +600,6 @@
         }
 
 
-        // =========================================
-        // FALAR
-        // =========================================
-
         function falarProximaParte() {
 
             if (!estaLendo) {
@@ -709,8 +625,6 @@
                 partes[indiceAtual];
 
 
-            // Remove destaque anterior.
-
             partes.forEach(
                 function (item) {
 
@@ -722,14 +636,10 @@
             );
 
 
-            // Destaca o atual.
-
             parte.elemento.classList.add(
                 "sendo-lido"
             );
 
-
-            // Centraliza o texto.
 
             parte.elemento.scrollIntoView({
 
@@ -739,8 +649,6 @@
 
             });
 
-
-            // Cria fala.
 
             const fala =
                 new SpeechSynthesisUtterance(
@@ -764,8 +672,6 @@
                 1;
 
 
-            // Terminou.
-
             fala.onend =
                 function () {
 
@@ -775,8 +681,6 @@
 
                 };
 
-
-            // Erro.
 
             fala.onerror =
                 function () {
