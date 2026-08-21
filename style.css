@@ -301,7 +301,7 @@ main {
 
 
 /* =========================================
-   LUPA QUADRADA
+   LUPA COMO CURSOR
 ========================================= */
 
 #lupa {
@@ -310,26 +310,27 @@ main {
 
     position: fixed;
 
-    width: 260px;
+    width: 180px;
 
-    height: 260px;
+    height: 180px;
 
     left: 0;
 
     top: 0;
 
-    padding: 20px;
+    transform:
+        translate(-50%, -50%);
 
     background: #ffffff;
 
     color: #000000;
 
-    border: 5px solid var(--azul);
+    border: 4px solid var(--azul);
 
-    border-radius: 12px;
+    border-radius: 50%;
 
     box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.5);
+        0 5px 20px rgba(0, 0, 0, 0.45);
 
     z-index: 999999;
 
@@ -356,9 +357,7 @@ main {
 
     justify-content: center;
 
-    padding: 10px;
-
-    overflow: hidden;
+    padding: 20px;
 
     background: #ffffff;
 
@@ -370,7 +369,9 @@ main {
 
     font-weight: bold;
 
-    line-height: 1.5;
+    line-height: 1.4;
+
+    overflow: hidden;
 
     word-break: break-word;
 
@@ -564,9 +565,9 @@ footer p {
 
     #lupa {
 
-        width: 220px;
+        width: 150px;
 
-        height: 220px;
+        height: 150px;
 
     }
 
@@ -574,6 +575,8 @@ footer p {
     #lupaConteudo {
 
         font-size: 1.4rem;
+
+        padding: 15px;
 
     }
 
@@ -602,9 +605,9 @@ footer p {
 
     #lupa {
 
-        width: 190px;
+        width: 130px;
 
-        height: 190px;
+        height: 130px;
 
     }
 
@@ -612,6 +615,8 @@ footer p {
     #lupaConteudo {
 
         font-size: 1.2rem;
+
+        padding: 10px;
 
     }
 
