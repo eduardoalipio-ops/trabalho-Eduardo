@@ -1,62 +1,99 @@
-/* =========================
+/* =========================================
+   VISÃO ACESSÍVEL
+   CSS PRINCIPAL
+========================================= */
+
+
+/* =========================================
    CONFIGURAÇÕES GERAIS
-========================= */
+========================================= */
 
 :root {
     --tamanho-texto: 100%;
+
+    --cor-principal: #075985;
+    --cor-principal-hover: #0369a1;
+
+    --cor-fundo: #f4f7fb;
+    --cor-fundo-card: #ffffff;
+
+    --cor-texto: #17202a;
+
+    --cor-foco: #facc15;
+
+    --cor-destaque-leitura: #fff176;
+    --cor-borda-leitura: #f59e0b;
 }
+
 
 * {
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
+
+    font-size: var(--tamanho-texto);
 }
+
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
 
-    background: #f4f7fb;
-    color: #17202a;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--cor-fundo);
+
+    color: var(--cor-texto);
 
     line-height: 1.7;
 
     transition:
-        background 0.3s,
-        color 0.3s;
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 
-
-/* =========================
+/* =========================================
    CABEÇALHO
-========================= */
+========================================= */
 
 header {
-    background: #075985;
-    color: white;
+    background: var(--cor-principal);
+
+    color: #ffffff;
 
     text-align: center;
 
     padding: 40px 20px;
 }
 
+
 header h1 {
     margin: 0 0 10px;
 
     font-size: 2.5rem;
+
+    line-height: 1.2;
 }
+
 
 header p {
+    margin: 0;
+
     font-size: 1.2rem;
+
+    line-height: 1.6;
 }
 
 
-/* =========================
-   FERRAMENTAS
-========================= */
+/* =========================================
+   BARRA DE FERRAMENTAS
+========================================= */
 
 .ferramentas {
     display: flex;
@@ -65,14 +102,21 @@ header p {
 
     justify-content: center;
 
+    align-items: center;
+
     gap: 12px;
 
     padding: 20px;
 
-    background: white;
+    background: #ffffff;
 
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #dddddd;
 }
+
+
+/* =========================================
+   BOTÕES
+========================================= */
 
 button {
     border: none;
@@ -81,9 +125,13 @@ button {
 
     padding: 14px 18px;
 
-    background: #0369a1;
+    min-height: 48px;
 
-    color: white;
+    background: var(--cor-principal-hover);
+
+    color: #ffffff;
+
+    font-family: inherit;
 
     font-size: 1rem;
 
@@ -92,28 +140,37 @@ button {
     cursor: pointer;
 
     transition:
-        background 0.2s,
-        transform 0.2s;
+        background 0.2s ease,
+        transform 0.2s ease;
 }
+
 
 button:hover {
-    background: #075985;
+    background: var(--cor-principal);
 
-    transform: scale(1.03);
+    transform: translateY(-2px);
 }
 
-button:focus {
-    outline: 4px solid #facc15;
+
+button:active {
+    transform: translateY(0);
+}
+
+
+button:focus-visible {
+    outline: 4px solid var(--cor-foco);
 
     outline-offset: 3px;
 }
 
 
-/* =========================
-   CONTEÚDO
-========================= */
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
 
 main {
+    width: 100%;
+
     max-width: 1000px;
 
     margin: 40px auto;
@@ -121,8 +178,13 @@ main {
     padding: 0 20px;
 }
 
+
+/* =========================================
+   CARDS
+========================================= */
+
 .card {
-    background: white;
+    background: var(--cor-fundo-card);
 
     margin-bottom: 25px;
 
@@ -130,47 +192,126 @@ main {
 
     border-radius: 12px;
 
+    border: 1px solid #e1e5e8;
+
     box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+
+/* =========================================
+   TÍTULOS
+========================================= */
+
 .card h2 {
-    color: #075985;
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    color: var(--cor-principal);
 
     font-size: 1.8rem;
+
+    line-height: 1.3;
 }
+
 
 .card h3 {
-    color: #0369a1;
-
     margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    color: var(--cor-principal-hover);
+
+    font-size: 1.3rem;
+
+    line-height: 1.4;
 }
 
+
 .card p {
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
     font-size: 1.1rem;
 }
 
 
-/* =================================
-   TAMANHO DOS TEXTOS
-================================= */
+/* =========================================
+   TAMANHO DO TEXTO
+========================================= */
+
+/*
+   O JavaScript altera:
+
+   --tamanho-texto
+
+   Exemplo:
+
+   100%
+   110%
+   120%
+   130%
+
+   O conteúdo acompanha essa alteração.
+*/
 
 #conteudo h2 {
-    font-size: calc(1.8rem * var(--tamanho-texto) / 100);
+    font-size:
+        calc(
+            1.8rem *
+            var(--tamanho-texto) /
+            100
+        );
 }
+
 
 #conteudo h3 {
-    font-size: calc(1.3rem * var(--tamanho-texto) / 100);
+    font-size:
+        calc(
+            1.3rem *
+            var(--tamanho-texto) /
+            100
+        );
 }
+
 
 #conteudo p {
-    font-size: calc(1.1rem * var(--tamanho-texto) / 100);
+    font-size:
+        calc(
+            1.1rem *
+            var(--tamanho-texto) /
+            100
+        );
 }
 
 
-/* =================================
+/* =========================================
+   TEXTO SENDO LIDO
+========================================= */
+
+.sendo-lido {
+    background: var(--cor-destaque-leitura) !important;
+
+    color: #000000 !important;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 0 0 4px var(--cor-borda-leitura);
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================
    LUPA
-================================= */
+========================================= */
 
 #lupa {
     display: none;
@@ -178,15 +319,18 @@ main {
     position: fixed;
 
     width: 300px;
+
     height: 200px;
+
+    padding: 20px;
 
     overflow: hidden;
 
-    background: white;
+    background: #ffffff;
 
-    color: black;
+    color: #000000;
 
-    border: 5px solid #075985;
+    border: 5px solid var(--cor-principal);
 
     border-radius: 50%;
 
@@ -197,125 +341,214 @@ main {
 
     pointer-events: none;
 
-    transform-origin: center center;
+    font-size: 1.5rem;
 
-    padding: 25px;
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    word-wrap: break-word;
 }
 
 
 /*
- * Conteúdo ampliado
- */
+   Área onde aparece o texto ampliado.
+*/
 
 #lupaConteudo {
     width: 100%;
+
     height: 100%;
 
     overflow: hidden;
 
-    transform: scale(1.8);
+    display: flex;
 
-    transform-origin: center center;
+    align-items: center;
 
-    font-size: 1.2rem;
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: 1.7rem;
+
+    line-height: 1.5;
+
+    color: #000000;
+
+    background: #ffffff;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   ALTO CONTRASTE
+========================================= */
+
+body.alto-contraste {
+    background: #000000;
+
+    color: #ffffff;
 }
 
 
 /*
- * Elementos copiados para a lupa
- */
+   Cabeçalho
+*/
 
-#lupaConteudo * {
-    max-width: none !important;
+body.alto-contraste header {
+    background: #000000;
 
-    pointer-events: none !important;
+    color: #ffffff;
+
+    border-bottom: 3px solid #ffffff;
 }
 
 
-/* =================================
-   TEXTO SENDO LIDO
-================================= */
+/*
+   Barra de ferramentas
+*/
 
-.sendo-lido {
+body.alto-contraste .ferramentas {
+    background: #000000;
 
-    background: #fff176 !important;
-
-    color: #000 !important;
-
-    padding: 8px 12px;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 0 0 4px #f59e0b;
-
+    border-bottom: 2px solid #ffffff;
 }
 
 
-/* =================================
-   CONTRASTE
-================================= */
+/*
+   Botões
+*/
 
-body.alto-contraste {
+body.alto-contraste button {
+    background: #ffffff;
 
-    background: #000;
+    color: #000000;
 
-    color: #fff;
-
+    border: 2px solid #ffffff;
 }
+
+
+body.alto-contraste button:hover {
+    background: #ffff00;
+
+    color: #000000;
+}
+
+
+/*
+   Cards
+*/
 
 body.alto-contraste .card {
+    background: #000000;
 
-    background: #000;
+    color: #ffffff;
 
-    color: #fff;
+    border: 2px solid #ffffff;
 
-    border: 2px solid #fff;
-
+    box-shadow: none;
 }
+
+
+/*
+   Títulos
+*/
 
 body.alto-contraste .card h2,
 body.alto-contraste .card h3 {
-
     color: #ffff00;
-
 }
 
 
-/* =========================
+/*
+   Texto que está sendo lido
+*/
+
+body.alto-contraste .sendo-lido {
+    background: #ffff00 !important;
+
+    color: #000000 !important;
+
+    box-shadow:
+        0 0 0 4px #ffffff;
+}
+
+
+/*
+   Lupa no alto contraste
+*/
+
+body.alto-contraste #lupa {
+    background: #ffffff;
+
+    color: #000000;
+
+    border-color: #ffff00;
+}
+
+
+body.alto-contraste #lupaConteudo {
+    background: #ffffff;
+
+    color: #000000;
+}
+
+
+/* =========================================
    RODAPÉ
-========================= */
+========================================= */
 
 footer {
-    text-align: center;
-
-    padding: 30px;
-
-    background: #075985;
-
-    color: white;
-
     margin-top: 50px;
+
+    padding: 30px 20px;
+
+    background: var(--cor-principal);
+
+    color: #ffffff;
+
+    text-align: center;
 }
 
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
+footer p {
+    margin: 0;
 
-@media (max-width: 600px) {
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 30px 15px;
+    }
+
 
     header h1 {
         font-size: 2rem;
     }
 
+
     header p {
         font-size: 1rem;
     }
 
+
     .ferramentas {
         flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 15px;
     }
+
 
     button {
         width: 100%;
@@ -323,74 +556,103 @@ footer {
         font-size: 1.05rem;
     }
 
+
+    main {
+        margin: 25px auto;
+
+        padding: 0 15px;
+    }
+
+
     .card {
         padding: 20px;
+
+        margin-bottom: 20px;
     }
+
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+
+    .card p {
+        font-size: 1rem;
+    }
+
 
     #lupa {
-        width: 200px;
-        height: 120px;
+        width: 190px;
 
-        font-size: 1.4rem;
+        height: 140px;
+
+        padding: 15px;
+
+        border-width: 4px;
+    }
+
+
+    #lupaConteudo {
+        font-size: 1.3rem;
+    }
+
+
+    footer {
+        margin-top: 30px;
     }
 }
-/* =========================
-   TEXTO SENDO LIDO
-========================= */
 
-.sendo-lido {
-    background: #fff176 !important;
 
-    color: #000 !important;
+/* =========================================
+   TELAS MUITO PEQUENAS
+========================================= */
 
-    padding: 8px 12px;
+@media (max-width: 400px) {
 
-    border-radius: 8px;
+    header h1 {
+        font-size: 1.7rem;
+    }
 
-    box-shadow:
-        0 0 0 4px #f59e0b;
 
-    transition:
-        background 0.3s,
-        box-shadow 0.3s;
+    .card {
+        padding: 16px;
+    }
+
+
+    #lupa {
+        width: 170px;
+
+        height: 120px;
+    }
+
+
+    #lupaConteudo {
+        font-size: 1.1rem;
+    }
 }
 
 
-/* =========================
-   LUPA DURANTE A LEITURA
-========================= */
+/* =========================================
+   REDUÇÃO DE MOVIMENTO
+========================================= */
 
-#lupa {
-    width: 320px;
+@media (prefers-reduced-motion: reduce) {
 
-    min-height: 160px;
+    html {
+        scroll-behavior: auto;
+    }
 
-    max-height: 230px;
 
-    overflow-y: auto;
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
 
-    font-size: 1.7rem;
-
-    font-weight: bold;
-
-    line-height: 1.5;
-
-    padding: 18px;
-
-    background: #ffffff;
-
-    color: #000000;
-
-    border: 6px solid #075985;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.45);
+        animation: none !important;
+    }
 }
-
-
-#lupa .icone-lupa {
-    font-size: 1.5rem;
-}
-
