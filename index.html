@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -26,11 +25,13 @@
                 👁️
             </div>
 
-            <div>
+            <div class="titulo-site">
+                <span class="mini-titulo">ACESSIBILIDADE DIGITAL</span>
+
                 <h1>Visão Acessível</h1>
 
                 <p>
-                    Uma internet mais fácil de enxergar e usar.
+                    Uma internet mais fácil de enxergar, ouvir e usar.
                 </p>
             </div>
 
@@ -39,6 +40,8 @@
     </header>
 
 
+    <!-- PAINEL DE ACESSIBILIDADE -->
+
     <nav
         class="ferramentas"
         aria-label="Ferramentas de acessibilidade"
@@ -46,13 +49,15 @@
 
         <div class="titulo-ferramentas">
 
-            <span>⚙️</span>
+            <div class="icone-config" aria-hidden="true">
+                ⚙️
+            </div>
 
             <div>
                 <strong>Ferramentas de acessibilidade</strong>
 
                 <small>
-                    Escolha uma opção para personalizar a página
+                    Personalize a página de acordo com suas necessidades
                 </small>
             </div>
 
@@ -64,46 +69,71 @@
             <button
                 type="button"
                 id="aumentarTexto"
+                class="botao-acessibilidade aumentar"
             >
-                <span>🔠</span>
-                Aumentar texto
+                <span class="botao-icone">🔠</span>
+
+                <span class="botao-texto">
+                    <strong>Aumentar</strong>
+                    <small>Tamanho da letra</small>
+                </span>
             </button>
 
 
             <button
                 type="button"
                 id="diminuirTexto"
+                class="botao-acessibilidade diminuir"
             >
-                <span>🔡</span>
-                Diminuir texto
+                <span class="botao-icone">🔡</span>
+
+                <span class="botao-texto">
+                    <strong>Diminuir</strong>
+                    <small>Tamanho da letra</small>
+                </span>
             </button>
 
 
             <button
                 type="button"
                 id="contraste"
+                class="botao-acessibilidade contraste"
                 aria-pressed="false"
             >
-                <span>🌓</span>
-                Alto contraste
+                <span class="botao-icone">🌓</span>
+
+                <span class="botao-texto">
+                    <strong>Alto contraste</strong>
+                    <small>Alterar as cores</small>
+                </span>
             </button>
 
 
             <button
                 type="button"
                 id="lerTexto"
+                class="botao-acessibilidade ler"
             >
-                <span>🔊</span>
-                Ler página
+                <span class="botao-icone">🔊</span>
+
+                <span class="botao-texto">
+                    <strong>Ler página</strong>
+                    <small>Ouvir o conteúdo</small>
+                </span>
             </button>
 
 
             <button
                 type="button"
                 id="pararLeitura"
+                class="botao-acessibilidade parar"
             >
-                <span>⏹️</span>
-                Parar leitura
+                <span class="botao-icone">⏹️</span>
+
+                <span class="botao-texto">
+                    <strong>Parar leitura</strong>
+                    <small>Interromper a voz</small>
+                </span>
             </button>
 
         </div>
@@ -113,23 +143,46 @@
 
     <main id="conteudo">
 
-        <section class="hero card">
+
+        <!-- HERO -->
+
+        <section class="hero">
 
             <div class="hero-texto">
 
-                <span class="etiqueta">
-                    ACESSIBILIDADE DIGITAL
+                <span class="etiqueta azul-texto">
+                    ACESSIBILIDADE PARA TODOS
                 </span>
 
                 <h2>
-                    Informação deve estar ao alcance de todos.
+                    Informação deve estar
+                    <span>ao alcance de todos.</span>
                 </h2>
 
                 <p>
                     O Visão Acessível reúne ferramentas simples
-                    para deixar a navegação mais confortável
-                    para pessoas com baixa visão.
+                    para deixar a navegação mais confortável,
+                    inclusiva e acessível para pessoas com baixa visão.
                 </p>
+
+                <div class="hero-beneficios">
+
+                    <div>
+                        <span>✓</span>
+                        Texto ajustável
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Alto contraste
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        Leitura por voz
+                    </div>
+
+                </div>
 
             </div>
 
@@ -138,28 +191,44 @@
                 class="hero-imagem"
                 aria-hidden="true"
             >
-                👁️
+                <div class="circulo-externo">
+                    <div class="olho">
+                        👁️
+                    </div>
+                </div>
             </div>
 
         </section>
 
 
-        <section class="card">
+        <!-- RECURSOS -->
 
-            <span class="etiqueta">
-                RECURSOS
-            </span>
+        <section class="secao">
 
-            <h2>
-                Conheça as ferramentas
-            </h2>
+            <div class="cabecalho-secao">
+
+                <div>
+                    <span class="etiqueta roxo-texto">
+                        RECURSOS
+                    </span>
+
+                    <h2>
+                        Ferramentas para facilitar sua experiência
+                    </h2>
+                </div>
+
+                <div class="numero-recursos">
+                    04
+                </div>
+
+            </div>
 
 
             <div class="recursos">
 
-                <article class="recurso">
+                <article class="recurso recurso-azul">
 
-                    <div class="icone azul">
+                    <div class="icone-recurso">
                         🔠
                     </div>
 
@@ -169,17 +238,18 @@
                         </h3>
 
                         <p>
-                            Aumente ou diminua as letras
-                            para facilitar a leitura.
+                            Aumente ou diminua as letras para
+                            encontrar o tamanho mais confortável
+                            para sua leitura.
                         </p>
                     </div>
 
                 </article>
 
 
-                <article class="recurso">
+                <article class="recurso recurso-amarelo">
 
-                    <div class="icone amarelo">
+                    <div class="icone-recurso">
                         🌓
                     </div>
 
@@ -189,17 +259,17 @@
                         </h3>
 
                         <p>
-                            Aumente o contraste das cores
-                            para enxergar melhor.
+                            Use cores com maior diferença entre
+                            fundo e texto para facilitar a visualização.
                         </p>
                     </div>
 
                 </article>
 
 
-                <article class="recurso">
+                <article class="recurso recurso-verde">
 
-                    <div class="icone verde">
+                    <div class="icone-recurso">
                         🔊
                     </div>
 
@@ -209,28 +279,28 @@
                         </h3>
 
                         <p>
-                            Escute o conteúdo da página
-                            usando a voz do navegador.
+                            Escute o conteúdo da página usando
+                            a voz disponível no seu navegador.
                         </p>
                     </div>
 
                 </article>
 
 
-                <article class="recurso">
+                <article class="recurso recurso-roxo">
 
-                    <div class="icone roxo">
+                    <div class="icone-recurso">
                         ⌨️
                     </div>
 
                     <div>
                         <h3>
-                            Navegação
+                            Navegação por teclado
                         </h3>
 
                         <p>
-                            Utilize o teclado para acessar
-                            os botões e navegar pela página.
+                            Utilize a tecla Tab para acessar
+                            os comandos e navegar pela página.
                         </p>
                     </div>
 
@@ -241,12 +311,14 @@
         </section>
 
 
-        <section class="card informacao">
+        <!-- INFORMAÇÃO -->
 
-            <div>
+        <section class="informacao">
 
-                <span class="etiqueta">
-                    ACESSIBILIDADE
+            <div class="informacao-texto">
+
+                <span class="etiqueta verde-texto">
+                    POR UMA INTERNET MAIS INCLUSIVA
                 </span>
 
                 <h2>
@@ -270,6 +342,10 @@
 
             <div class="destaque">
 
+                <div class="destaque-icone">
+                    ❤️
+                </div>
+
                 <strong>
                     + inclusão
                 </strong>
@@ -282,6 +358,7 @@
             </div>
 
         </section>
+
 
     </main>
 
@@ -298,9 +375,15 @@
             </p>
         </div>
 
-        <span>
-            © 2026
-        </span>
+        <div class="footer-direita">
+            <span>
+                Feito para todos
+            </span>
+
+            <span>
+                © 2026
+            </span>
+        </div>
 
     </footer>
 
@@ -335,7 +418,7 @@
         let indice = 0;
 
 
-        // aumentar texto
+        // AUMENTAR TEXTO
 
         aumentarTexto.addEventListener(
             "click",
@@ -354,7 +437,7 @@
         );
 
 
-        // diminuir texto
+        // DIMINUIR TEXTO
 
         diminuirTexto.addEventListener(
             "click",
@@ -373,7 +456,7 @@
         );
 
 
-        // contraste
+        // CONTRASTE
 
         contraste.addEventListener(
             "click",
@@ -394,12 +477,26 @@
                 if (ativo) {
 
                     contraste.innerHTML =
-                        "<span>🌕</span> Contraste normal";
+                        `
+                        <span class="botao-icone">🌕</span>
+
+                        <span class="botao-texto">
+                            <strong>Contraste normal</strong>
+                            <small>Voltar às cores</small>
+                        </span>
+                        `;
 
                 } else {
 
                     contraste.innerHTML =
-                        "<span>🌓</span> Alto contraste";
+                        `
+                        <span class="botao-icone">🌓</span>
+
+                        <span class="botao-texto">
+                            <strong>Alto contraste</strong>
+                            <small>Alterar as cores</small>
+                        </span>
+                        `;
 
                 }
 
@@ -407,7 +504,7 @@
         );
 
 
-        // prepara os textos para leitura
+        // PREPARA OS TEXTOS PARA LEITURA
 
         function prepararTexto() {
 
@@ -444,7 +541,7 @@
         }
 
 
-        // iniciar leitura
+        // INICIAR LEITURA
 
         lerTexto.addEventListener(
             "click",
@@ -477,7 +574,7 @@
         );
 
 
-        // lê cada parte da página
+        // LÊ CADA PARTE
 
         function lerProximo() {
 
@@ -564,7 +661,7 @@
         }
 
 
-        // parar leitura
+        // PARAR LEITURA
 
         pararLeitura.addEventListener(
             "click",
@@ -600,4 +697,3 @@
 </body>
 
 </html>
-```
