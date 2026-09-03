@@ -1,793 +1,123 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Visão Acessível - ferramentas para facilitar a leitura e navegação."
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site com ferramentas de acessibilidade para pessoas com baixa visão.">
     <title>Visão Acessível</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
-    <!-- =========================================
-         CABEÇALHO
-    ========================================== -->
-
     <header>
-
         <h1>Visão Acessível</h1>
-
-        <p>
-            Ferramentas para facilitar a leitura
-            e a navegação de pessoas com baixa visão.
-        </p>
-
+        <p>Ferramentas para facilitar a leitura e a navegação.</p>
     </header>
 
+    <nav class="ferramentas" aria-label="Ferramentas de acessibilidade">
 
-    <!-- =========================================
-         FERRAMENTAS
-    ========================================== -->
-
-    <nav
-        class="ferramentas"
-        aria-label="Ferramentas de acessibilidade"
-    >
-
-        <button
-            type="button"
-            id="aumentarTexto"
-        >
+        <button id="aumentarTexto" type="button">
             🔠 Aumentar texto
         </button>
 
-
-        <button
-            type="button"
-            id="diminuirTexto"
-        >
+        <button id="diminuirTexto" type="button">
             🔡 Diminuir texto
         </button>
 
-
-        <button
-            type="button"
-            id="contraste"
-            aria-pressed="false"
-        >
+        <button id="contraste" type="button" aria-pressed="false">
             🌓 Alto contraste
         </button>
 
-
-        <button
-            type="button"
-            id="ativarLupa"
-            aria-pressed="false"
-        >
+        <button id="ativarLupa" type="button" aria-pressed="false">
             🔍 Ativar lupa
         </button>
 
-
-        <button
-            type="button"
-            id="lerTexto"
-        >
+        <button id="lerTexto" type="button">
             🔊 Ler texto
         </button>
 
-
-        <button
-            type="button"
-            id="pararLeitura"
-        >
+        <button id="pararLeitura" type="button">
             ⏹️ Parar leitura
         </button>
 
     </nav>
 
-
-    <!-- =========================================
-         CONTEÚDO
-    ========================================== -->
-
     <main id="conteudo">
 
         <section class="card">
-
-            <h2>
-                Bem-vindo ao Visão Acessível
-            </h2>
+            <h2>Bem-vindo ao Visão Acessível</h2>
 
             <p>
-                Este site foi desenvolvido para ajudar
-                pessoas com dificuldades de visão a acessar
-                informações na internet com mais facilidade.
+                Este site foi criado para ajudar pessoas com
+                dificuldades de visão a acessar informações na internet.
             </p>
 
             <p>
-                Você pode aumentar o tamanho das letras,
-                ativar o alto contraste, utilizar uma lupa
-                ou ouvir o conteúdo da página.
+                É possível aumentar as letras, mudar o contraste,
+                usar uma lupa ou ouvir o conteúdo da página.
             </p>
-
         </section>
-
 
         <section class="card">
 
-            <h2>
-                Como utilizar?
-            </h2>
+            <h2>Como utilizar?</h2>
 
-
-            <h3>
-                🔠 Aumentar o texto
-            </h3>
+            <h3>🔠 Aumentar o texto</h3>
 
             <p>
-                Clique no botão "Aumentar texto" para deixar
-                as letras maiores e facilitar a leitura.
+                Use o botão para aumentar o tamanho das letras
+                e facilitar a leitura.
             </p>
 
-
-            <h3>
-                🔍 Lupa
-            </h3>
+            <h3>🔍 Lupa</h3>
 
             <p>
                 Ative a lupa e mova o mouse pela página.
-                A lupa acompanhará o cursor e ampliará
-                o texto que estiver próximo do ponteiro.
+                Ela mostra uma versão ampliada do texto.
             </p>
 
-
-            <h3>
-                🔊 Leitor de texto
-            </h3>
+            <h3>🔊 Leitor de texto</h3>
 
             <p>
                 Clique em "Ler texto" para que o navegador
-                leia o conteúdo desta página em voz alta.
+                leia o conteúdo da página em voz alta.
             </p>
 
         </section>
 
-
         <section class="card">
 
-            <h2>
-                Por que acessibilidade é importante?
-            </h2>
-
+            <h2>Por que acessibilidade é importante?</h2>
 
             <p>
-                A acessibilidade digital permite que mais
-                pessoas possam utilizar sites, sistemas
-                e aplicativos independentemente de suas
-                limitações.
+                A acessibilidade digital ajuda mais pessoas a
+                utilizarem sites, sistemas e aplicativos.
             </p>
 
-
             <p>
-                Pequenas ferramentas, como aumento de fonte,
-                contraste e leitura por voz, podem tornar
-                a experiência na internet muito mais inclusiva.
+                Recursos como fontes maiores, contraste e leitura
+                por voz podem facilitar bastante o uso da internet.
             </p>
 
         </section>
 
     </main>
 
-
-    <!-- =========================================
-         LUPA CURSOR
-    ========================================== -->
-
-    <div
-        id="lupa"
-        aria-hidden="true"
-    >
-
-        <div id="lupaConteudo">
-            Passe o cursor sobre um texto.
-        </div>
-
+    <div id="lupa" aria-hidden="true">
+        <span id="lupaConteudo">Passe o mouse sobre um texto.</span>
     </div>
 
-
-    <!-- =========================================
-         RODAPÉ
-    ========================================== -->
-
     <footer>
-
-        <p>
-            Visão Acessível © 2026
-        </p>
-
+        <p>Visão Acessível © 2026</p>
     </footer>
 
-
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================== -->
-
-    <script>
-
-        // =========================================
-        // ELEMENTOS
-        // =========================================
-
-        const conteudo =
-            document.getElementById("conteudo");
-
-
-        // =========================================
-        // TAMANHO DO TEXTO
-        // =========================================
-
-        let tamanhoTexto = 100;
-
-
-        const botaoAumentar =
-            document.getElementById("aumentarTexto");
-
-
-        const botaoDiminuir =
-            document.getElementById("diminuirTexto");
-
-
-        function atualizarTamanhoTexto() {
-
-            document.documentElement.style.setProperty(
-                "--tamanho-texto",
-                tamanhoTexto + "%"
-            );
-
-        }
-
-
-        botaoAumentar.addEventListener(
-            "click",
-            function () {
-
-                if (tamanhoTexto < 180) {
-
-                    tamanhoTexto += 10;
-
-                    atualizarTamanhoTexto();
-
-                }
-
-            }
-        );
-
-
-        botaoDiminuir.addEventListener(
-            "click",
-            function () {
-
-                if (tamanhoTexto > 80) {
-
-                    tamanhoTexto -= 10;
-
-                    atualizarTamanhoTexto();
-
-                }
-
-            }
-        );
-
-
-        // =========================================
-        // ALTO CONTRASTE
-        // =========================================
-
-        const botaoContraste =
-            document.getElementById("contraste");
-
-
-        botaoContraste.addEventListener(
-            "click",
-            function () {
-
-                const ativado =
-                    document.body.classList.toggle(
-                        "alto-contraste"
-                    );
-
-
-                botaoContraste.setAttribute(
-                    "aria-pressed",
-                    ativado
-                );
-
-
-                if (ativado) {
-
-                    botaoContraste.textContent =
-                        "🌕 Desativar contraste";
-
-                } else {
-
-                    botaoContraste.textContent =
-                        "🌓 Alto contraste";
-
-                }
-
-            }
-        );
-
-
-        // =========================================
-        // LUPA COMO CURSOR
-        // =========================================
-
-        const lupa =
-            document.getElementById("lupa");
-
-
-        const lupaConteudo =
-            document.getElementById("lupaConteudo");
-
-
-        const botaoLupa =
-            document.getElementById("ativarLupa");
-
-
-        let lupaAtiva = false;
-
-
-        let mouseX = 0;
-
-        let mouseY = 0;
-
-
-        // =========================================
-        // ATIVAR / DESATIVAR LUPA
-        // =========================================
-
-        botaoLupa.addEventListener(
-            "click",
-            function () {
-
-                lupaAtiva = !lupaAtiva;
-
-
-                botaoLupa.setAttribute(
-                    "aria-pressed",
-                    lupaAtiva
-                );
-
-
-                if (lupaAtiva) {
-
-                    lupa.style.display = "block";
-
-                    botaoLupa.textContent =
-                        "🔍 Desativar lupa";
-
-                } else {
-
-                    lupa.style.display = "none";
-
-                    botaoLupa.textContent =
-                        "🔍 Ativar lupa";
-
-                }
-
-            }
-        );
-
-
-        // =========================================
-        // MOVIMENTO DO CURSOR
-        // =========================================
-
-        document.addEventListener(
-            "pointermove",
-            function (evento) {
-
-                mouseX =
-                    evento.clientX;
-
-                mouseY =
-                    evento.clientY;
-
-
-                if (!lupaAtiva) {
-
-                    return;
-
-                }
-
-
-                atualizarPosicaoLupa();
-
-                atualizarTextoLupa();
-
-            }
-        );
-
-
-        // =========================================
-        // POSIÇÃO DA LUPA
-        // =========================================
-
-        function atualizarPosicaoLupa() {
-
-            lupa.style.left =
-                mouseX + "px";
-
-
-            lupa.style.top =
-                mouseY + "px";
-
-        }
-
-
-        // =========================================
-        // TEXTO DA LUPA
-        // =========================================
-
-        function atualizarTextoLupa() {
-
-            const elemento =
-                document.elementFromPoint(
-                    mouseX,
-                    mouseY
-                );
-
-
-            if (!elemento) {
-
-                return;
-
-            }
-
-
-            // Não captura a própria lupa.
-
-            if (
-                elemento === lupa ||
-                lupa.contains(elemento)
-            ) {
-
-                return;
-
-            }
-
-
-            // Verifica se está no conteúdo.
-
-            if (
-                !conteudo.contains(elemento)
-            ) {
-
-                lupaConteudo.textContent =
-                    "Passe o cursor sobre um texto.";
-
-                return;
-
-            }
-
-
-            let texto = "";
-
-
-            if (elemento.innerText) {
-
-                texto =
-                    elemento.innerText;
-
-            } else {
-
-                texto =
-                    elemento.textContent;
-
-            }
-
-
-            texto =
-                texto.trim();
-
-
-            if (texto.length > 0) {
-
-                lupaConteudo.textContent =
-                    texto;
-
-            }
-
-        }
-
-
-        // =========================================
-        // ESCONDER LUPA AO SAIR DA JANELA
-        // =========================================
-
-        document.addEventListener(
-            "pointerleave",
-            function () {
-
-                if (lupaAtiva) {
-
-                    lupa.style.display =
-                        "none";
-
-                }
-
-            }
-        );
-
-
-        document.addEventListener(
-            "pointerenter",
-            function () {
-
-                if (lupaAtiva) {
-
-                    lupa.style.display =
-                        "block";
-
-                    atualizarPosicaoLupa();
-
-                    atualizarTextoLupa();
-
-                }
-
-            }
-        );
-
-
-        // =========================================
-        // LEITOR DE TEXTO
-        // =========================================
-
-        let estaLendo = false;
-
-        let partes = [];
-
-        let indiceAtual = 0;
-
-
-        function prepararTexto() {
-
-            const elementos =
-                conteudo.querySelectorAll(
-                    "h2, h3, p"
-                );
-
-
-            partes = [];
-
-
-            elementos.forEach(
-                function (elemento) {
-
-                    const texto =
-                        elemento.innerText.trim();
-
-
-                    if (texto.length > 0) {
-
-                        partes.push({
-
-                            elemento: elemento,
-
-                            texto: texto
-
-                        });
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        function falarProximaParte() {
-
-            if (!estaLendo) {
-
-                return;
-
-            }
-
-
-            if (
-                indiceAtual >=
-                partes.length
-            ) {
-
-                finalizarLeitura();
-
-                return;
-
-            }
-
-
-            const parte =
-                partes[indiceAtual];
-
-
-            partes.forEach(
-                function (item) {
-
-                    item.elemento.classList.remove(
-                        "sendo-lido"
-                    );
-
-                }
-            );
-
-
-            parte.elemento.classList.add(
-                "sendo-lido"
-            );
-
-
-            parte.elemento.scrollIntoView({
-
-                behavior: "smooth",
-
-                block: "center"
-
-            });
-
-
-            const fala =
-                new SpeechSynthesisUtterance(
-                    parte.texto
-                );
-
-
-            fala.lang =
-                "pt-BR";
-
-
-            fala.rate =
-                0.9;
-
-
-            fala.pitch =
-                1;
-
-
-            fala.volume =
-                1;
-
-
-            fala.onend =
-                function () {
-
-                    indiceAtual++;
-
-                    falarProximaParte();
-
-                };
-
-
-            fala.onerror =
-                function () {
-
-                    indiceAtual++;
-
-                    falarProximaParte();
-
-                };
-
-
-            window.speechSynthesis.speak(
-                fala
-            );
-
-        }
-
-
-        // =========================================
-        // LER TEXTO
-        // =========================================
-
-        const botaoLer =
-            document.getElementById("lerTexto");
-
-
-        botaoLer.addEventListener(
-            "click",
-            function () {
-
-                if (
-                    !("speechSynthesis" in window)
-                ) {
-
-                    alert(
-                        "Seu navegador não possui suporte para leitura de texto."
-                    );
-
-                    return;
-
-                }
-
-
-                window.speechSynthesis.cancel();
-
-
-                prepararTexto();
-
-
-                indiceAtual = 0;
-
-
-                estaLendo = true;
-
-
-                falarProximaParte();
-
-            }
-        );
-
-
-        // =========================================
-        // PARAR LEITURA
-        // =========================================
-
-        const botaoParar =
-            document.getElementById(
-                "pararLeitura"
-            );
-
-
-        botaoParar.addEventListener(
-            "click",
-            function () {
-
-                finalizarLeitura();
-
-            }
-        );
-
-
-        // =========================================
-        // FINALIZAR LEITURA
-        // =========================================
-
-        function finalizarLeitura() {
-
-            estaLendo = false;
-
-
-            window.speechSynthesis.cancel();
-
-
-            partes.forEach(
-                function (item) {
-
-                    item.elemento.classList.remove(
-                        "sendo-lido"
-                    );
-
-                }
-            );
-
-        }
-
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
 </html>
+```
