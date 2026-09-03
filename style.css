@@ -1,10 +1,12 @@
 /* ========================================
    VISÃO ACESSÍVEL
-   NOVO DESIGN
+   DESIGN ACESSÍVEL E COLORIDO
 ======================================== */
 
 
-/* CORES */
+/* ========================================
+   CORES
+======================================== */
 
 :root {
 
@@ -24,17 +26,24 @@
     --vermelho: #dc2626;
     --vermelho-claro: #fee2e2;
 
+    --ceu: #0284c7;
+    --ceu-claro: #e0f2fe;
+
     --fundo: #f1f5f9;
+
     --branco: #ffffff;
 
     --texto: #172033;
+
     --cinza: #64748b;
 
     --borda: #dbe3ef;
 }
 
 
-/* RESET */
+/* ========================================
+   RESET
+======================================== */
 
 * {
     box-sizing: border-box;
@@ -298,7 +307,7 @@ body {
 
 
 /* ========================================
-   BOTÕES GRANDES
+   BOTÕES
 ======================================== */
 
 .botoes {
@@ -306,17 +315,17 @@ body {
     display: grid;
 
     grid-template-columns:
-        repeat(5, 1fr);
+        repeat(3, 1fr);
 
-    gap: 12px;
+    gap: 14px;
 }
 
 
 .botao-acessibilidade {
 
-    min-height: 105px;
+    min-height: 125px;
 
-    padding: 15px;
+    padding: 17px;
 
     display: flex;
 
@@ -326,11 +335,11 @@ body {
 
     justify-content: center;
 
-    gap: 8px;
+    gap: 9px;
 
     border: 3px solid transparent;
 
-    border-radius: 17px;
+    border-radius: 18px;
 
     cursor: pointer;
 
@@ -351,7 +360,7 @@ body {
         0 10px 22px
         rgba(0,0,0,0.13);
 
-    filter: brightness(1.03);
+    filter: brightness(1.04);
 }
 
 
@@ -365,9 +374,11 @@ body {
 
 .botao-acessibilidade:focus-visible {
 
-    outline: 5px solid #facc15;
+    outline:
+        5px solid
+        #facc15;
 
-    outline-offset: 3px;
+    outline-offset: 4px;
 }
 
 
@@ -375,7 +386,7 @@ body {
 
     display: block;
 
-    font-size: 2.2rem;
+    font-size: 2.5rem;
 
     line-height: 1;
 }
@@ -391,7 +402,7 @@ body {
 
     display: block;
 
-    font-size: 1rem;
+    font-size: 1.05rem;
 
     line-height: 1.2;
 }
@@ -401,15 +412,17 @@ body {
 
     display: block;
 
-    margin-top: 3px;
+    margin-top: 4px;
 
-    font-size: 0.72rem;
+    font-size: 0.75rem;
 
     opacity: 0.8;
 }
 
 
-/* CORES DOS BOTÕES */
+/* ========================================
+   CORES DOS BOTÕES
+======================================== */
 
 .aumentar {
 
@@ -458,6 +471,16 @@ body {
     color: #991b1b;
 
     border-color: #fca5a5;
+}
+
+
+.cursor {
+
+    background: #e0f2fe;
+
+    color: #075985;
+
+    border-color: #7dd3fc;
 }
 
 
@@ -601,6 +624,8 @@ main {
 }
 
 
+/* BENEFÍCIOS */
+
 .hero-beneficios {
 
     margin-top: 25px;
@@ -609,7 +634,7 @@ main {
 
     flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 10px;
 }
 
 
@@ -633,7 +658,9 @@ main {
 }
 
 
-/* OLHO */
+/* ========================================
+   IMAGEM / OLHO
+======================================== */
 
 .hero-imagem {
 
@@ -694,7 +721,7 @@ main {
 
 
 /* ========================================
-   SEÇÕES
+   SEÇÃO DE RECURSOS
 ======================================== */
 
 .secao {
@@ -729,7 +756,6 @@ main {
 }
 
 
-.card > h2,
 .cabecalho-secao h2 {
 
     margin: 0;
@@ -762,7 +788,7 @@ main {
 
 
 /* ========================================
-   RECURSOS
+   CARDS
 ======================================== */
 
 .recursos {
@@ -987,7 +1013,7 @@ main {
 
 
 /* ========================================
-   TEXTO SENDO LIDO
+   LEITURA DA PÁGINA
 ======================================== */
 
 .sendo-lido {
@@ -1011,6 +1037,32 @@ main {
 
 
 /* ========================================
+   LEITURA PELO CURSOR
+======================================== */
+
+.sendo-lido-cursor {
+
+    background: #bae6fd !important;
+
+    color: #0c4a6e !important;
+
+    border-radius: 8px;
+
+    outline:
+        4px solid
+        #0284c7;
+
+    outline-offset: 3px;
+
+    box-shadow:
+        0 0 0 7px
+        rgba(14,165,233,0.15);
+
+    transition: none !important;
+}
+
+
+/* ========================================
    ALTO CONTRASTE
 ======================================== */
 
@@ -1026,7 +1078,9 @@ body.alto-contraste .topo {
 
     background: #000;
 
-    border-bottom: 4px solid white;
+    border-bottom:
+        4px solid
+        white;
 }
 
 
@@ -1039,7 +1093,9 @@ body.alto-contraste .informacao {
 
     color: white;
 
-    border: 3px solid white;
+    border:
+        3px solid
+        white;
 
     box-shadow: none;
 }
@@ -1054,18 +1110,16 @@ body.alto-contraste h3 {
 }
 
 
-body.alto-contraste .titulo-ferramentas small,
-body.alto-contraste .hero p,
-body.alto-contraste .recurso p,
-body.alto-contraste .informacao p {
+body.alto-contraste
+.titulo-ferramentas small,
+body.alto-contraste
+.hero p,
+body.alto-contraste
+.recurso p,
+body.alto-contraste
+.informacao p {
 
     color: white;
-}
-
-
-body.alto-contraste .botoes {
-
-    background: #000;
 }
 
 
@@ -1075,11 +1129,14 @@ body.alto-contraste .botao-acessibilidade {
 
     color: white;
 
-    border: 3px solid white;
+    border:
+        3px solid
+        white;
 }
 
 
-body.alto-contraste .botao-acessibilidade:hover {
+body.alto-contraste
+.botao-acessibilidade:hover {
 
     background: yellow;
 
@@ -1091,7 +1148,9 @@ body.alto-contraste .recurso {
 
     background: #000;
 
-    border: 2px solid white;
+    border:
+        2px solid
+        white;
 }
 
 
@@ -1100,7 +1159,9 @@ body.alto-contraste .numero-recursos {
 
     background: #000;
 
-    border: 2px solid white;
+    border:
+        2px solid
+        white;
 }
 
 
@@ -1110,27 +1171,33 @@ body.alto-contraste .hero::before {
 }
 
 
-body.alto-contraste .hero h2 span {
+body.alto-contraste
+.hero h2 span {
 
     color: yellow;
 }
 
 
-body.alto-contraste .circulo-externo {
+body.alto-contraste
+.circulo-externo {
 
     background: white;
 }
 
 
-body.alto-contraste .olho {
+body.alto-contraste
+.olho {
 
     background: black;
 
-    border: 3px solid white;
+    border:
+        3px solid
+        white;
 }
 
 
-body.alto-contraste .destaque {
+body.alto-contraste
+.destaque {
 
     background: white;
 
@@ -1142,7 +1209,24 @@ body.alto-contraste footer {
 
     background: #000;
 
-    border-top: 3px solid white;
+    border-top:
+        3px solid
+        white;
+}
+
+
+body.alto-contraste
+.sendo-lido-cursor {
+
+    background: yellow !important;
+
+    color: black !important;
+
+    outline:
+        4px solid
+        white;
+
+    box-shadow: none;
 }
 
 
@@ -1210,7 +1294,7 @@ footer p {
     .botoes {
 
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(2, 1fr);
     }
 
 
