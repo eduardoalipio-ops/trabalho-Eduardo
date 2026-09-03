@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="Visão Acessível: ferramentas para facilitar a leitura e a navegação."
+        content="Visão Acessível - ferramentas para facilitar a leitura e a navegação."
     >
 
     <title>Visão Acessível</title>
@@ -86,16 +86,6 @@
             >
                 <span>🌓</span>
                 Alto contraste
-            </button>
-
-
-            <button
-                type="button"
-                id="ativarLupa"
-                aria-pressed="false"
-            >
-                <span>🔍</span>
-                Ativar lupa
             </button>
 
 
@@ -189,26 +179,6 @@
 
                 <article class="recurso">
 
-                    <div class="icone roxo">
-                        🔍
-                    </div>
-
-                    <div>
-                        <h3>
-                            Lupa
-                        </h3>
-
-                        <p>
-                            Use a lupa para ampliar o texto
-                            próximo ao cursor.
-                        </p>
-                    </div>
-
-                </article>
-
-
-                <article class="recurso">
-
                     <div class="icone amarelo">
                         🌓
                     </div>
@@ -241,6 +211,26 @@
                         <p>
                             Escute o conteúdo da página
                             usando a voz do navegador.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="recurso">
+
+                    <div class="icone roxo">
+                        ⌨️
+                    </div>
+
+                    <div>
+                        <h3>
+                            Navegação
+                        </h3>
+
+                        <p>
+                            Utilize o teclado para acessar
+                            os botões e navegar pela página.
                         </p>
                     </div>
 
@@ -296,16 +286,6 @@
     </main>
 
 
-    <div
-        id="lupa"
-        aria-hidden="true"
-    >
-        <div id="lupaConteudo">
-            Passe o cursor sobre um texto
-        </div>
-    </div>
-
-
     <footer>
 
         <div>
@@ -327,7 +307,8 @@
 
     <script>
 
-        const conteudo = document.getElementById("conteudo");
+        const conteudo =
+            document.getElementById("conteudo");
 
         const aumentarTexto =
             document.getElementById("aumentarTexto");
@@ -338,25 +319,14 @@
         const contraste =
             document.getElementById("contraste");
 
-        const ativarLupa =
-            document.getElementById("ativarLupa");
-
         const lerTexto =
             document.getElementById("lerTexto");
 
         const pararLeitura =
             document.getElementById("pararLeitura");
 
-        const lupa =
-            document.getElementById("lupa");
-
-        const lupaConteudo =
-            document.getElementById("lupaConteudo");
-
 
         let tamanhoTexto = 100;
-
-        let lupaAtiva = false;
 
         let lendo = false;
 
@@ -365,154 +335,79 @@
         let indice = 0;
 
 
-        /* AUMENTAR TEXTO */
+        // aumentar texto
 
-        aumentarTexto.addEventListener("click", function () {
+        aumentarTexto.addEventListener(
+            "click",
+            function () {
 
-            if (tamanhoTexto < 180) {
+                if (tamanhoTexto < 180) {
 
-                tamanhoTexto += 10;
+                    tamanhoTexto += 10;
 
-                document.documentElement.style.fontSize =
-                    tamanhoTexto + "%";
-            }
+                    document.documentElement.style.fontSize =
+                        tamanhoTexto + "%";
 
-        });
-
-
-        /* DIMINUIR TEXTO */
-
-        diminuirTexto.addEventListener("click", function () {
-
-            if (tamanhoTexto > 80) {
-
-                tamanhoTexto -= 10;
-
-                document.documentElement.style.fontSize =
-                    tamanhoTexto + "%";
-            }
-
-        });
-
-
-        /* ALTO CONTRASTE */
-
-        contraste.addEventListener("click", function () {
-
-            const ativo =
-                document.body.classList.toggle("alto-contraste");
-
-            contraste.setAttribute(
-                "aria-pressed",
-                ativo
-            );
-
-            contraste.innerHTML = ativo
-                ? "<span>🌕</span> Contraste normal"
-                : "<span>🌓</span> Alto contraste";
-
-        });
-
-
-        /* LUPA */
-
-        ativarLupa.addEventListener("click", function () {
-
-            lupaAtiva = !lupaAtiva;
-
-            ativarLupa.setAttribute(
-                "aria-pressed",
-                lupaAtiva
-            );
-
-            if (lupaAtiva) {
-
-                lupa.style.display = "flex";
-
-                ativarLupa.innerHTML =
-                    "<span>🔍</span> Desativar lupa";
-
-            } else {
-
-                lupa.style.display = "none";
-
-                ativarLupa.innerHTML =
-                    "<span>🔍</span> Ativar lupa";
-
-            }
-
-        });
-
-
-        document.addEventListener(
-            "mousemove",
-            function (evento) {
-
-                if (!lupaAtiva) {
-                    return;
                 }
-
-
-                lupa.style.left =
-                    evento.clientX + "px";
-
-                lupa.style.top =
-                    evento.clientY + "px";
-
-
-                mostrarTextoNaLupa(
-                    evento.clientX,
-                    evento.clientY
-                );
 
             }
         );
 
 
-        function mostrarTextoNaLupa(x, y) {
+        // diminuir texto
 
-            const elemento =
-                document.elementFromPoint(x, y);
+        diminuirTexto.addEventListener(
+            "click",
+            function () {
 
+                if (tamanhoTexto > 80) {
 
-            if (!elemento) {
-                return;
-            }
+                    tamanhoTexto -= 10;
 
+                    document.documentElement.style.fontSize =
+                        tamanhoTexto + "%";
 
-            if (lupa.contains(elemento)) {
-                return;
-            }
-
-
-            if (!conteudo.contains(elemento)) {
-
-                lupaConteudo.textContent =
-                    "Passe o cursor sobre um texto";
-
-                return;
-            }
-
-
-            let texto =
-                elemento.innerText ||
-                elemento.textContent;
-
-
-            texto = texto.trim();
-
-
-            if (texto !== "") {
-
-                lupaConteudo.textContent =
-                    texto;
+                }
 
             }
+        );
 
-        }
+
+        // contraste
+
+        contraste.addEventListener(
+            "click",
+            function () {
+
+                const ativo =
+                    document.body.classList.toggle(
+                        "alto-contraste"
+                    );
 
 
-        /* LEITOR DE TEXTO */
+                contraste.setAttribute(
+                    "aria-pressed",
+                    ativo
+                );
+
+
+                if (ativo) {
+
+                    contraste.innerHTML =
+                        "<span>🌕</span> Contraste normal";
+
+                } else {
+
+                    contraste.innerHTML =
+                        "<span>🌓</span> Alto contraste";
+
+                }
+
+            }
+        );
+
+
+        // prepara os textos para leitura
 
         function prepararTexto() {
 
@@ -534,8 +429,11 @@
                     if (texto !== "") {
 
                         partes.push({
+
                             elemento: elemento,
+
                             texto: texto
+
                         });
 
                     }
@@ -545,6 +443,8 @@
 
         }
 
+
+        // iniciar leitura
 
         lerTexto.addEventListener(
             "click",
@@ -559,6 +459,7 @@
                     );
 
                     return;
+
                 }
 
 
@@ -576,6 +477,8 @@
         );
 
 
+        // lê cada parte da página
+
         function lerProximo() {
 
             if (!lendo) {
@@ -588,6 +491,7 @@
                 finalizarLeitura();
 
                 return;
+
             }
 
 
@@ -612,8 +516,11 @@
 
 
             atual.elemento.scrollIntoView({
+
                 behavior: "smooth",
+
                 block: "center"
+
             });
 
 
@@ -657,7 +564,7 @@
         }
 
 
-        /* PARAR LEITURA */
+        // parar leitura
 
         pararLeitura.addEventListener(
             "click",
