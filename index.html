@@ -5,188 +5,690 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ferramentas de acessibilidade para facilitar a leitura e navegação na internet.">
+
+    <meta
+        name="description"
+        content="Visão Acessível: ferramentas para facilitar a leitura e a navegação."
+    >
+
     <title>Visão Acessível</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header class="topo">
+
         <div class="topo-conteudo">
-            <span class="icone">👁️</span>
+
+            <div class="logo" aria-hidden="true">
+                👁️
+            </div>
 
             <div>
                 <h1>Visão Acessível</h1>
-                <p>Uma internet mais fácil de enxergar e usar.</p>
+
+                <p>
+                    Uma internet mais fácil de enxergar e usar.
+                </p>
             </div>
+
         </div>
+
     </header>
 
-    <section class="painel" aria-label="Ferramentas de acessibilidade">
 
-        <div class="painel-titulo">
+    <nav
+        class="ferramentas"
+        aria-label="Ferramentas de acessibilidade"
+    >
+
+        <div class="titulo-ferramentas">
+
             <span>⚙️</span>
+
             <div>
-                <strong>Ferramentas</strong>
-                <small>Personalize a página do seu jeito</small>
+                <strong>Ferramentas de acessibilidade</strong>
+
+                <small>
+                    Escolha uma opção para personalizar a página
+                </small>
             </div>
+
         </div>
+
 
         <div class="botoes">
 
-            <button id="aumentarTexto" type="button">
+            <button
+                type="button"
+                id="aumentarTexto"
+            >
                 <span>🔠</span>
-                <span>Aumentar texto</span>
+                Aumentar texto
             </button>
 
-            <button id="diminuirTexto" type="button">
+
+            <button
+                type="button"
+                id="diminuirTexto"
+            >
                 <span>🔡</span>
-                <span>Diminuir texto</span>
+                Diminuir texto
             </button>
 
-            <button id="contraste" type="button" aria-pressed="false">
-                <span>◐</span>
-                <span>Alto contraste</span>
+
+            <button
+                type="button"
+                id="contraste"
+                aria-pressed="false"
+            >
+                <span>🌓</span>
+                Alto contraste
             </button>
 
-            <button id="ativarLupa" type="button" aria-pressed="false">
+
+            <button
+                type="button"
+                id="ativarLupa"
+                aria-pressed="false"
+            >
                 <span>🔍</span>
-                <span>Ativar lupa</span>
+                Ativar lupa
             </button>
 
-            <button id="lerTexto" type="button">
+
+            <button
+                type="button"
+                id="lerTexto"
+            >
                 <span>🔊</span>
-                <span>Ler página</span>
+                Ler página
             </button>
 
-            <button id="pararLeitura" type="button">
-                <span>⏹</span>
-                <span>Parar leitura</span>
+
+            <button
+                type="button"
+                id="pararLeitura"
+            >
+                <span>⏹️</span>
+                Parar leitura
             </button>
 
         </div>
-    </section>
+
+    </nav>
+
 
     <main id="conteudo">
 
         <section class="hero card">
-            <div class="hero-texto">
-                <span class="etiqueta">ACESSIBILIDADE DIGITAL</span>
 
-                <h2>Informação deve estar ao alcance de todos.</h2>
+            <div class="hero-texto">
+
+                <span class="etiqueta">
+                    ACESSIBILIDADE DIGITAL
+                </span>
+
+                <h2>
+                    Informação deve estar ao alcance de todos.
+                </h2>
 
                 <p>
-                    O Visão Acessível reúne ferramentas simples para
-                    deixar a navegação mais confortável para pessoas
-                    com baixa visão.
+                    O Visão Acessível reúne ferramentas simples
+                    para deixar a navegação mais confortável
+                    para pessoas com baixa visão.
                 </p>
+
             </div>
 
-            <div class="hero-icone" aria-hidden="true">
+
+            <div
+                class="hero-imagem"
+                aria-hidden="true"
+            >
                 👁️
             </div>
+
         </section>
+
 
         <section class="card">
 
-            <h2>Conheça as ferramentas</h2>
+            <span class="etiqueta">
+                RECURSOS
+            </span>
+
+            <h2>
+                Conheça as ferramentas
+            </h2>
+
 
             <div class="recursos">
 
                 <article class="recurso">
-                    <div class="recurso-icone azul">🔠</div>
+
+                    <div class="icone azul">
+                        🔠
+                    </div>
+
                     <div>
-                        <h3>Tamanho do texto</h3>
+                        <h3>
+                            Tamanho do texto
+                        </h3>
+
                         <p>
-                            Aumente ou diminua as letras de acordo
-                            com a sua necessidade.
+                            Aumente ou diminua as letras
+                            para facilitar a leitura.
                         </p>
                     </div>
+
                 </article>
 
-                <article class="recurso">
-                    <div class="recurso-icone roxo">🔍</div>
-                    <div>
-                        <h3>Lupa</h3>
-                        <p>
-                            Amplie o conteúdo próximo ao cursor
-                            para enxergar melhor os detalhes.
-                        </p>
-                    </div>
-                </article>
 
                 <article class="recurso">
-                    <div class="recurso-icone amarelo">🌓</div>
+
+                    <div class="icone roxo">
+                        🔍
+                    </div>
+
                     <div>
-                        <h3>Alto contraste</h3>
+                        <h3>
+                            Lupa
+                        </h3>
+
                         <p>
-                            Use cores com maior contraste para
-                            facilitar a visualização da página.
+                            Use a lupa para ampliar o texto
+                            próximo ao cursor.
                         </p>
                     </div>
+
                 </article>
 
+
                 <article class="recurso">
-                    <div class="recurso-icone verde">🔊</div>
+
+                    <div class="icone amarelo">
+                        🌓
+                    </div>
+
                     <div>
-                        <h3>Leitor de texto</h3>
+                        <h3>
+                            Alto contraste
+                        </h3>
+
                         <p>
-                            Ouça o conteúdo da página utilizando
-                            a voz do seu navegador.
+                            Aumente o contraste das cores
+                            para enxergar melhor.
                         </p>
                     </div>
+
+                </article>
+
+
+                <article class="recurso">
+
+                    <div class="icone verde">
+                        🔊
+                    </div>
+
+                    <div>
+                        <h3>
+                            Leitor de texto
+                        </h3>
+
+                        <p>
+                            Escute o conteúdo da página
+                            usando a voz do navegador.
+                        </p>
+                    </div>
+
                 </article>
 
             </div>
+
         </section>
+
 
         <section class="card informacao">
 
             <div>
-                <span class="etiqueta">POR QUE IMPORTA?</span>
 
-                <h2>Acessibilidade transforma a experiência.</h2>
+                <span class="etiqueta">
+                    ACESSIBILIDADE
+                </span>
+
+                <h2>
+                    Por que acessibilidade é importante?
+                </h2>
 
                 <p>
-                    Um site acessível permite que mais pessoas encontrem
-                    informações, estudem, trabalhem e utilizem serviços
-                    pela internet com mais autonomia.
+                    A acessibilidade digital permite que mais
+                    pessoas tenham acesso a informações,
+                    serviços e ferramentas pela internet.
                 </p>
 
                 <p>
-                    Pequenas mudanças, como melhorar o contraste ou
-                    aumentar uma fonte, podem fazer uma grande diferença.
+                    Recursos simples, como fontes maiores,
+                    contraste e leitura por voz, podem fazer
+                    uma grande diferença na experiência do usuário.
                 </p>
+
             </div>
 
-            <div class="numero">
-                <strong>100%</strong>
-                <span>mais inclusão começa com acessibilidade</span>
+
+            <div class="destaque">
+
+                <strong>
+                    + inclusão
+                </strong>
+
+                <span>
+                    Mais pessoas usando a internet
+                    com autonomia.
+                </span>
+
             </div>
 
         </section>
 
     </main>
 
-    <div id="lupa" aria-hidden="true">
-        <div class="lupa-borda">
-            <span id="lupaConteudo">
-                Passe o cursor sobre um texto
-            </span>
+
+    <div
+        id="lupa"
+        aria-hidden="true"
+    >
+        <div id="lupaConteudo">
+            Passe o cursor sobre um texto
         </div>
     </div>
 
+
     <footer>
+
         <div>
-            <strong>👁️ Visão Acessível</strong>
-            <p>Projeto de acessibilidade digital</p>
+            <strong>
+                👁️ Visão Acessível
+            </strong>
+
+            <p>
+                Projeto de acessibilidade digital
+            </p>
         </div>
 
-        <span>© 2026</span>
+        <span>
+            © 2026
+        </span>
+
     </footer>
 
-    <script src="script.js"></script>
+
+    <script>
+
+        const conteudo = document.getElementById("conteudo");
+
+        const aumentarTexto =
+            document.getElementById("aumentarTexto");
+
+        const diminuirTexto =
+            document.getElementById("diminuirTexto");
+
+        const contraste =
+            document.getElementById("contraste");
+
+        const ativarLupa =
+            document.getElementById("ativarLupa");
+
+        const lerTexto =
+            document.getElementById("lerTexto");
+
+        const pararLeitura =
+            document.getElementById("pararLeitura");
+
+        const lupa =
+            document.getElementById("lupa");
+
+        const lupaConteudo =
+            document.getElementById("lupaConteudo");
+
+
+        let tamanhoTexto = 100;
+
+        let lupaAtiva = false;
+
+        let lendo = false;
+
+        let partes = [];
+
+        let indice = 0;
+
+
+        /* AUMENTAR TEXTO */
+
+        aumentarTexto.addEventListener("click", function () {
+
+            if (tamanhoTexto < 180) {
+
+                tamanhoTexto += 10;
+
+                document.documentElement.style.fontSize =
+                    tamanhoTexto + "%";
+            }
+
+        });
+
+
+        /* DIMINUIR TEXTO */
+
+        diminuirTexto.addEventListener("click", function () {
+
+            if (tamanhoTexto > 80) {
+
+                tamanhoTexto -= 10;
+
+                document.documentElement.style.fontSize =
+                    tamanhoTexto + "%";
+            }
+
+        });
+
+
+        /* ALTO CONTRASTE */
+
+        contraste.addEventListener("click", function () {
+
+            const ativo =
+                document.body.classList.toggle("alto-contraste");
+
+            contraste.setAttribute(
+                "aria-pressed",
+                ativo
+            );
+
+            contraste.innerHTML = ativo
+                ? "<span>🌕</span> Contraste normal"
+                : "<span>🌓</span> Alto contraste";
+
+        });
+
+
+        /* LUPA */
+
+        ativarLupa.addEventListener("click", function () {
+
+            lupaAtiva = !lupaAtiva;
+
+            ativarLupa.setAttribute(
+                "aria-pressed",
+                lupaAtiva
+            );
+
+            if (lupaAtiva) {
+
+                lupa.style.display = "flex";
+
+                ativarLupa.innerHTML =
+                    "<span>🔍</span> Desativar lupa";
+
+            } else {
+
+                lupa.style.display = "none";
+
+                ativarLupa.innerHTML =
+                    "<span>🔍</span> Ativar lupa";
+
+            }
+
+        });
+
+
+        document.addEventListener(
+            "mousemove",
+            function (evento) {
+
+                if (!lupaAtiva) {
+                    return;
+                }
+
+
+                lupa.style.left =
+                    evento.clientX + "px";
+
+                lupa.style.top =
+                    evento.clientY + "px";
+
+
+                mostrarTextoNaLupa(
+                    evento.clientX,
+                    evento.clientY
+                );
+
+            }
+        );
+
+
+        function mostrarTextoNaLupa(x, y) {
+
+            const elemento =
+                document.elementFromPoint(x, y);
+
+
+            if (!elemento) {
+                return;
+            }
+
+
+            if (lupa.contains(elemento)) {
+                return;
+            }
+
+
+            if (!conteudo.contains(elemento)) {
+
+                lupaConteudo.textContent =
+                    "Passe o cursor sobre um texto";
+
+                return;
+            }
+
+
+            let texto =
+                elemento.innerText ||
+                elemento.textContent;
+
+
+            texto = texto.trim();
+
+
+            if (texto !== "") {
+
+                lupaConteudo.textContent =
+                    texto;
+
+            }
+
+        }
+
+
+        /* LEITOR DE TEXTO */
+
+        function prepararTexto() {
+
+            partes = [];
+
+            const elementos =
+                conteudo.querySelectorAll(
+                    "h2, h3, p"
+                );
+
+
+            elementos.forEach(
+                function (elemento) {
+
+                    const texto =
+                        elemento.innerText.trim();
+
+
+                    if (texto !== "") {
+
+                        partes.push({
+                            elemento: elemento,
+                            texto: texto
+                        });
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        lerTexto.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    !("speechSynthesis" in window)
+                ) {
+
+                    alert(
+                        "Seu navegador não possui suporte para leitura de texto."
+                    );
+
+                    return;
+                }
+
+
+                speechSynthesis.cancel();
+
+                prepararTexto();
+
+                indice = 0;
+
+                lendo = true;
+
+                lerProximo();
+
+            }
+        );
+
+
+        function lerProximo() {
+
+            if (!lendo) {
+                return;
+            }
+
+
+            if (indice >= partes.length) {
+
+                finalizarLeitura();
+
+                return;
+            }
+
+
+            partes.forEach(
+                function (parte) {
+
+                    parte.elemento.classList.remove(
+                        "sendo-lido"
+                    );
+
+                }
+            );
+
+
+            const atual =
+                partes[indice];
+
+
+            atual.elemento.classList.add(
+                "sendo-lido"
+            );
+
+
+            atual.elemento.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+
+            const fala =
+                new SpeechSynthesisUtterance(
+                    atual.texto
+                );
+
+
+            fala.lang = "pt-BR";
+
+            fala.rate = 0.9;
+
+            fala.pitch = 1;
+
+            fala.volume = 1;
+
+
+            fala.onend =
+                function () {
+
+                    indice++;
+
+                    lerProximo();
+
+                };
+
+
+            fala.onerror =
+                function () {
+
+                    indice++;
+
+                    lerProximo();
+
+                };
+
+
+            speechSynthesis.speak(fala);
+
+        }
+
+
+        /* PARAR LEITURA */
+
+        pararLeitura.addEventListener(
+            "click",
+            function () {
+
+                finalizarLeitura();
+
+            }
+        );
+
+
+        function finalizarLeitura() {
+
+            lendo = false;
+
+            speechSynthesis.cancel();
+
+
+            partes.forEach(
+                function (parte) {
+
+                    parte.elemento.classList.remove(
+                        "sendo-lido"
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
 
 </body>
 
