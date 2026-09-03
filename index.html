@@ -5,114 +5,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site com ferramentas de acessibilidade para pessoas com baixa visão.">
+    <meta name="description" content="Ferramentas de acessibilidade para facilitar a leitura e navegação na internet.">
     <title>Visão Acessível</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Visão Acessível</h1>
-        <p>Ferramentas para facilitar a leitura e a navegação.</p>
+    <header class="topo">
+        <div class="topo-conteudo">
+            <span class="icone">👁️</span>
+
+            <div>
+                <h1>Visão Acessível</h1>
+                <p>Uma internet mais fácil de enxergar e usar.</p>
+            </div>
+        </div>
     </header>
 
-    <nav class="ferramentas" aria-label="Ferramentas de acessibilidade">
+    <section class="painel" aria-label="Ferramentas de acessibilidade">
 
-        <button id="aumentarTexto" type="button">
-            🔠 Aumentar texto
-        </button>
+        <div class="painel-titulo">
+            <span>⚙️</span>
+            <div>
+                <strong>Ferramentas</strong>
+                <small>Personalize a página do seu jeito</small>
+            </div>
+        </div>
 
-        <button id="diminuirTexto" type="button">
-            🔡 Diminuir texto
-        </button>
+        <div class="botoes">
 
-        <button id="contraste" type="button" aria-pressed="false">
-            🌓 Alto contraste
-        </button>
+            <button id="aumentarTexto" type="button">
+                <span>🔠</span>
+                <span>Aumentar texto</span>
+            </button>
 
-        <button id="ativarLupa" type="button" aria-pressed="false">
-            🔍 Ativar lupa
-        </button>
+            <button id="diminuirTexto" type="button">
+                <span>🔡</span>
+                <span>Diminuir texto</span>
+            </button>
 
-        <button id="lerTexto" type="button">
-            🔊 Ler texto
-        </button>
+            <button id="contraste" type="button" aria-pressed="false">
+                <span>◐</span>
+                <span>Alto contraste</span>
+            </button>
 
-        <button id="pararLeitura" type="button">
-            ⏹️ Parar leitura
-        </button>
+            <button id="ativarLupa" type="button" aria-pressed="false">
+                <span>🔍</span>
+                <span>Ativar lupa</span>
+            </button>
 
-    </nav>
+            <button id="lerTexto" type="button">
+                <span>🔊</span>
+                <span>Ler página</span>
+            </button>
+
+            <button id="pararLeitura" type="button">
+                <span>⏹</span>
+                <span>Parar leitura</span>
+            </button>
+
+        </div>
+    </section>
 
     <main id="conteudo">
 
-        <section class="card">
-            <h2>Bem-vindo ao Visão Acessível</h2>
+        <section class="hero card">
+            <div class="hero-texto">
+                <span class="etiqueta">ACESSIBILIDADE DIGITAL</span>
 
-            <p>
-                Este site foi criado para ajudar pessoas com
-                dificuldades de visão a acessar informações na internet.
-            </p>
+                <h2>Informação deve estar ao alcance de todos.</h2>
 
-            <p>
-                É possível aumentar as letras, mudar o contraste,
-                usar uma lupa ou ouvir o conteúdo da página.
-            </p>
+                <p>
+                    O Visão Acessível reúne ferramentas simples para
+                    deixar a navegação mais confortável para pessoas
+                    com baixa visão.
+                </p>
+            </div>
+
+            <div class="hero-icone" aria-hidden="true">
+                👁️
+            </div>
         </section>
 
         <section class="card">
 
-            <h2>Como utilizar?</h2>
+            <h2>Conheça as ferramentas</h2>
 
-            <h3>🔠 Aumentar o texto</h3>
+            <div class="recursos">
 
-            <p>
-                Use o botão para aumentar o tamanho das letras
-                e facilitar a leitura.
-            </p>
+                <article class="recurso">
+                    <div class="recurso-icone azul">🔠</div>
+                    <div>
+                        <h3>Tamanho do texto</h3>
+                        <p>
+                            Aumente ou diminua as letras de acordo
+                            com a sua necessidade.
+                        </p>
+                    </div>
+                </article>
 
-            <h3>🔍 Lupa</h3>
+                <article class="recurso">
+                    <div class="recurso-icone roxo">🔍</div>
+                    <div>
+                        <h3>Lupa</h3>
+                        <p>
+                            Amplie o conteúdo próximo ao cursor
+                            para enxergar melhor os detalhes.
+                        </p>
+                    </div>
+                </article>
 
-            <p>
-                Ative a lupa e mova o mouse pela página.
-                Ela mostra uma versão ampliada do texto.
-            </p>
+                <article class="recurso">
+                    <div class="recurso-icone amarelo">🌓</div>
+                    <div>
+                        <h3>Alto contraste</h3>
+                        <p>
+                            Use cores com maior contraste para
+                            facilitar a visualização da página.
+                        </p>
+                    </div>
+                </article>
 
-            <h3>🔊 Leitor de texto</h3>
+                <article class="recurso">
+                    <div class="recurso-icone verde">🔊</div>
+                    <div>
+                        <h3>Leitor de texto</h3>
+                        <p>
+                            Ouça o conteúdo da página utilizando
+                            a voz do seu navegador.
+                        </p>
+                    </div>
+                </article>
 
-            <p>
-                Clique em "Ler texto" para que o navegador
-                leia o conteúdo da página em voz alta.
-            </p>
-
+            </div>
         </section>
 
-        <section class="card">
+        <section class="card informacao">
 
-            <h2>Por que acessibilidade é importante?</h2>
+            <div>
+                <span class="etiqueta">POR QUE IMPORTA?</span>
 
-            <p>
-                A acessibilidade digital ajuda mais pessoas a
-                utilizarem sites, sistemas e aplicativos.
-            </p>
+                <h2>Acessibilidade transforma a experiência.</h2>
 
-            <p>
-                Recursos como fontes maiores, contraste e leitura
-                por voz podem facilitar bastante o uso da internet.
-            </p>
+                <p>
+                    Um site acessível permite que mais pessoas encontrem
+                    informações, estudem, trabalhem e utilizem serviços
+                    pela internet com mais autonomia.
+                </p>
+
+                <p>
+                    Pequenas mudanças, como melhorar o contraste ou
+                    aumentar uma fonte, podem fazer uma grande diferença.
+                </p>
+            </div>
+
+            <div class="numero">
+                <strong>100%</strong>
+                <span>mais inclusão começa com acessibilidade</span>
+            </div>
 
         </section>
 
     </main>
 
     <div id="lupa" aria-hidden="true">
-        <span id="lupaConteudo">Passe o mouse sobre um texto.</span>
+        <div class="lupa-borda">
+            <span id="lupaConteudo">
+                Passe o cursor sobre um texto
+            </span>
+        </div>
     </div>
 
     <footer>
-        <p>Visão Acessível © 2026</p>
+        <div>
+            <strong>👁️ Visão Acessível</strong>
+            <p>Projeto de acessibilidade digital</p>
+        </div>
+
+        <span>© 2026</span>
     </footer>
 
     <script src="script.js"></script>
